@@ -1,0 +1,24 @@
+{
+    "name": "thiio/exigo-sdk",
+    "description": "This is an early version for an SDK that will consume Exigo's API",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6",
+        "fakerphp/faker": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "Thiio\\Exigo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Ordoñez",
+            "email": "fernando@thiio.com"
+        }
+    ],
+    "minimum-stability": "alpha"
+}
