@@ -13,6 +13,12 @@ use stdClass;
 use Thiio\Exigo\Requests\CalculateOrder;
 use Thiio\Exigo\Abstract\Endpoints;
 
+
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
+
 // $exigoClient = new Client();
 // $response = $exigoClient->calculateOrder($order);
 
@@ -30,10 +36,10 @@ class Client
     const TIMEOUT    = 10000;
 
     
-    
     protected $client;
 
-    public function __construct(string $login, string $password, string $company, string $env = "PRODUCTION"){
+
+    protected function __construct(string $login, string $password, string $company, string $env = "PRODUCTION"){
         if( ! $this->validEnv($env) ) throw new Exception("$env is invalid");
         $this->login    = $login;
         $this->password = $password;
@@ -56,7 +62,6 @@ class Client
         return $this->company;
     }
 
-
     private function buildClient(){
         return new GuzzleHttpClient([
             'base_uri' => $this->resolveMainUrl(),
@@ -67,7 +72,7 @@ class Client
 
     private function resolveMainUrl(){
         $company = strtolower($this->company);
-        return "https://{$company}-api.exigo.com/3.0";
+        return "https://{$company}-api.exigo.com";
     }
 
     private function setDefaultHeaders(){
@@ -97,46 +102,69 @@ class Client
         
     }
 
-    
-    public function calculateOrder( CalculateOrder $order, string $method = "POST", array $data = [] ){
-        
-        return $this->makeRequest($method, $order::ENDPOINT, $order->toArray() );
 
-    }
-
-    private function makeRequest( string $verb, $url, $data = [] ){
+    protected function makeRequest( string $verb, $url, $data = [] ){
         
         try {
             
             $client = $this->buildClient();
 
             $response = $client->request($verb, $url, $data);
-
-            $this->handleResponse($response);
+            
+            return $this->handleResponse($response);
             
 
         } catch (\Exception $e) {
             
-            //$this->handleErrorResponse($e);
-            var_dump($e);
+
+            return $this->handleErrorResponse($e);
 
         }
 
     }
 
     private function handleResponse(ResponseInterface $response){
-        $data = new stdClass();
-        $data->success = false;
-        $data->msg     = "";
-        $data->error   = null;
+        $apiResponse          = new stdClass();
+        $apiResponse->success = false;
+        $apiResponse->msg     = "";
+        $apiResponse->error   = null;
+        
         if( $response->getStatusCode() !== 200 ){
-            $data->error = $$response->getBody();
-            $data->msg = "Error Exigo Request";
+            
+            $apiResponse->error = $$response->getBody();
+            $apiResponse->msg   = "Error Exigo Request";
             return $response;
+
         }
-        $data->success = true;
-        $data->data = $response->getBody();
-        return $data; 
+
+        $apiResponse->msg     = "Success Request";
+        $apiResponse->success = true;
+        $apiResponse->data    = json_decode($response->getBody());
+        $this->log($apiResponse);
+        return $apiResponse; 
+    }
+
+
+    private function handleErrorResponse(Exception $e){
+
+        $apiResponse            = new stdClass();
+        $apiResponse->success   = false;
+        $apiResponse->msg       = $e->getMessage();
+        $apiResponse->exception = $e->getTrace();
+        $this->log($apiResponse);
+        return $apiResponse;
+
+    }
+
+
+    public function log($data){
+        $logger = new Logger('my_logger');
+        // Now add some handlers
+        $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Level::Debug));
+        $logger->pushHandler(new FirePHPHandler());
+        $message = json_encode($data);
+        $logger->info($message);
+
     }
 
 
