@@ -7,6 +7,8 @@ use Thiio\Exigo\Requests\GetItems;
 
 class ExigoApi extends Client
 {
+    const DEBUG = true;
+
 
     public function __construct(string $login, string $password, string $company, string $env = "PRODUCTION")
     {
@@ -20,7 +22,7 @@ class ExigoApi extends Client
      */
     public function calculateOrder( CalculateOrder $request, string $method = "POST", array $data = [] ){
         
-        return $this->makeRequest($method, $request::ENDPOINT, $request->toArray() );
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 
     }
 
@@ -33,7 +35,7 @@ class ExigoApi extends Client
         //$params = array_merge($extraParams, $request->toArray());
 
         $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
-        echo  $fullUrl;
+        
         return $this->makeRequest($method, $fullUrl);
 
     }

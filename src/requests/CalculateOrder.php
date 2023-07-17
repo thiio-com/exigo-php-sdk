@@ -4,7 +4,7 @@ namespace Thiio\Exigo\Requests;
 
 class CalculateOrder extends ExigoRequest {
 
-    const ENDPOINT = "/orders/calculate";
+    const ENDPOINT = self::API_VERSION."/orders/calculate";
 
     protected $currencyCode;
     protected $warehouseID;
