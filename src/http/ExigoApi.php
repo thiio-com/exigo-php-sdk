@@ -4,8 +4,10 @@ namespace Thiio\Exigo\Http;
 
 use Thiio\Exigo\Requests\CalculateOrder;
 use Thiio\Exigo\Requests\CreateCustomer;
+use Thiio\Exigo\Requests\CreateOrder;
 use Thiio\Exigo\Requests\GetCustomers;
 use Thiio\Exigo\Requests\GetItems;
+use Thiio\Exigo\Requests\GetOrders;
 
 class ExigoApi extends Client
 {
@@ -28,19 +30,17 @@ class ExigoApi extends Client
 
     }
 
+
     /**
-     * GetItems
-     * https://api.exigo.com/3.0/ExigoApi.asmx?op=GetItems
+     * CreateOrder 
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=CreateOrder
      */
-    public function getItems( GetItems $request, string $method="GET", $extraParams = [] ){
-
-        //$params = array_merge($extraParams, $request->toArray());
-
-        $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
+    public function createOrder( CreateOrder $request, string $method = "POST", array $data = [] ){
         
-        return $this->makeRequest($method, $fullUrl);
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 
     }
+
 
     /**
      * CreateCustomer
@@ -63,5 +63,40 @@ class ExigoApi extends Client
         
         return $this->makeRequest($method, $fullUrl);
     }
+
+
+    /**
+     * GetItems
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=GetItems
+     */
+    public function getItems( GetItems $request, string $method="GET", $extraParams = [] ){
+
+        //$params = array_merge($extraParams, $request->toArray());
+
+        $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
+        
+        return $this->makeRequest($method, $fullUrl);
+
+    }
+
+
+    /**
+     * GetOrders
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=GetItems
+     */
+    public function getOrders( GetOrders $request, string $method="GET", $extraParams = [] ){
+
+        //$params = array_merge($extraParams, $request->toArray());
+
+        $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
+        
+        return $this->makeRequest($method, $fullUrl);
+
+    }
+
+
+   
+
+
 
 }

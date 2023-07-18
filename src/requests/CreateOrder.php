@@ -64,7 +64,7 @@ class CreateOrder extends ExigoRequest
         $this->customerID = $customerId;
     }
 
-    public function setOrderStatus(int $orderStatus)
+    public function setOrderStatus(string $orderStatus)
     {
         $this->orderStatus = $orderStatus;
     }
@@ -94,47 +94,47 @@ class CreateOrder extends ExigoRequest
         $this->priceType = $priceType;
     }
 
-    public function setFirstName(?string $firstName)
+    public function setFirstName(string $firstName)
     {
         $this->firstName = $firstName;
     }
 
-    public function setMiddleName(?string $middleName)
+    public function setMiddleName(string $middleName)
     {
         $this->middleName = $middleName;
     }
 
-    public function setLastName(?string $lastName)
+    public function setLastName(string $lastName)
     {
         $this->lastName = $lastName;
     }
 
-    public function setNameSuffix(?string $nameSuffix)
+    public function setNameSuffix(string $nameSuffix)
     {
         $this->nameSuffix = $nameSuffix;
     }
 
-    public function setCompany(?string $company)
+    public function setCompany(string $company)
     {
         $this->company = $company;
     }
 
-    public function setAddress1(?string $address1)
+    public function setAddress1(string $address1)
     {
         $this->address1 = $address1;
     }
 
-    public function setAddress2(?string $address2)
+    public function setAddress2(string $address2)
     {
         $this->address2 = $address2;
     }
 
-    public function setAddress3(?string $address3)
+    public function setAddress3(string $address3)
     {
         $this->address3 = $address3;
     }
 
-    public function setCity(?string $city)
+    public function setCity(string $city)
     {
         $this->city = $city;
     }
@@ -144,7 +144,7 @@ class CreateOrder extends ExigoRequest
         $this->state = $state;
     }
 
-    public function setZip(?string $zip)
+    public function setZip(string $zip)
     {
         $this->zip = $zip;
     }
@@ -154,87 +154,87 @@ class CreateOrder extends ExigoRequest
         $this->country = $country;
     }
 
-    public function setCounty(?string $county)
+    public function setCounty(string $county)
     {
         $this->county = $county;
     }
 
-    public function setEmail(?string $email)
+    public function setEmail(string $email)
     {
         $this->email = $email;
     }
 
-    public function setPhone(?string $phone)
+    public function setPhone(string $phone)
     {
         $this->phone = $phone;
     }
 
-    public function setNotes(?string $notes)
+    public function setNotes(string $notes)
     {
         $this->notes = $notes;
     }
 
-    public function setOther11(?string $other11)
+    public function setOther11(string $other11)
     {
         $this->other11 = $other11;
     }
 
-    public function setOther12(?string $other12)
+    public function setOther12(string $other12)
     {
         $this->other12 = $other12;
     }
 
-    public function setOther13(?string $other13)
+    public function setOther13(string $other13)
     {
         $this->other13 = $other13;
     }
 
-    public function setOther14(?string $other14)
+    public function setOther14(string $other14)
     {
         $this->other14 = $other14;
     }
 
-    public function setOther15(?string $other15)
+    public function setOther15(string $other15)
     {
         $this->other15 = $other15;
     }
 
-    public function setOther16(?string $other16)
+    public function setOther16(string $other16)
     {
         $this->other16 = $other16;
     }
 
-    public function setOther17(?string $other17)
+    public function setOther17(string $other17)
     {
         $this->other17 = $other17;
     }
 
-    public function setOther18(?string $other18)
+    public function setOther18(string $other18)
     {
         $this->other18 = $other18;
     }
 
-    public function setOther19(?string $other19)
+    public function setOther19(string $other19)
     {
         $this->other19 = $other19;
     }
 
-    public function setOther20(?string $other20)
+    public function setOther20(string $other20)
     {
         $this->other20 = $other20;
     }
 
-    public function setOrderType(int $orderType)
+    public function setOrderType(string $orderType)
     {
         $this->orderType = $orderType;
     }
 
-    public function setTaxRateOverride(?float $taxRateOverride)
+    public function setTaxRateOverride(float $taxRateOverride)
     {
         $this->taxRateOverride = $taxRateOverride;
     }
 
-    public function setShippingAmountOverride(?float $shippingAmountOverride)
+    public function setShippingAmountOverride(float $shippingAmountOverride)
     {
         $this->shippingAmountOverride = $shippingAmountOverride;
     }
@@ -244,17 +244,17 @@ class CreateOrder extends ExigoRequest
         $this->useManualOrderID = $useManualOrderId;
     }
 
-    public function setManualOrderID(?int $manualOrderId)
+    public function setManualOrderID(int $manualOrderId)
     {
         $this->manualOrderID = $manualOrderId;
     }
 
-    public function setTransferVolumeToID(?int $transferVolumeToId)
+    public function setTransferVolumeToID(int $transferVolumeToId)
     {
         $this->transferVolumeToID = $transferVolumeToId;
     }
 
-    public function setReturnOrderID(?int $returnOrderId)
+    public function setReturnOrderID(int $returnOrderId)
     {
         $this->returnOrderID = $returnOrderId;
     }
@@ -264,12 +264,12 @@ class CreateOrder extends ExigoRequest
         $this->overwriteExistingOrder = $overwriteExistingOrder;
     }
 
-    public function setExistingOrderID(?int $existingOrderId)
+    public function setExistingOrderID(int $existingOrderId)
     {
         $this->existingOrderID = $existingOrderId;
     }
 
-    public function setPartyID(?int $partyId)
+    public function setPartyID(int $partyId)
     {
         $this->partyID = $partyId;
     }
@@ -285,32 +285,32 @@ class CreateOrder extends ExigoRequest
 
     }
 
-    public function setTransferVolumeToKey(?string $transferVolumeToKey)
+    public function setTransferVolumeToKey(string $transferVolumeToKey)
     {
         $this->transferVolumeToKey = $transferVolumeToKey;
     }
 
-    public function setReturnOrderKey(?string $returnOrderKey)
+    public function setReturnOrderKey(string $returnOrderKey)
     {
         $this->returnOrderKey = $returnOrderKey;
     }
 
-    public function setManualOrderKey(?string $manualOrderKey)
+    public function setManualOrderKey(string $manualOrderKey)
     {
         $this->manualOrderKey = $manualOrderKey;
     }
 
-    public function setExistingOrderKey(?string $existingOrderKey)
+    public function setExistingOrderKey(string $existingOrderKey)
     {
         $this->existingOrderKey = $existingOrderKey;
     }
 
-    public function setCustomerKey(?string $customerKey)
+    public function setCustomerKey(string $customerKey)
     {
         $this->customerKey = $customerKey;
     }
 
-    public function setOrderSubStatusTy(?int $orderSubStatusTy)
+    public function setOrderSubStatusTy(int $orderSubStatusTy)
     {
         $this->orderSubStatusTy = $orderSubStatusTy;
     }

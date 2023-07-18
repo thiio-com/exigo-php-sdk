@@ -7,6 +7,8 @@ use DateTime;
 class GetOrders extends ExigoRequest
 {
 
+    const ENDPOINT = self::API_VERSION."/orders";
+
     public $customerID;
     public $orderID;
     public $orderIDs;
@@ -118,7 +120,7 @@ class GetOrders extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOrderDateStart( DateTime $orderDateStart)
+    public function setOrderDateStart( string $orderDateStart)
     {
         $this->orderDateStart = $orderDateStart;
 
@@ -138,7 +140,7 @@ class GetOrders extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOrderDateEnd( DateTime $orderDateEnd)
+    public function setOrderDateEnd( string $orderDateEnd)
     {
         $this->orderDateEnd = $orderDateEnd;
 
@@ -298,7 +300,7 @@ class GetOrders extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setGreaterThanModifiedDate(DateTime $greaterThanModifiedDate)
+    public function setGreaterThanModifiedDate(string $greaterThanModifiedDate)
     {
         $this->greaterThanModifiedDate = $greaterThanModifiedDate;
 
