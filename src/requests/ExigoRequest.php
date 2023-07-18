@@ -9,6 +9,8 @@ class ExigoRequest implements JsonSerializable
 
     const API_VERSION = "/3.0";
 
+    const DATE_FORMAT = "Y-m-d H:i:s";
+
     public function jsonSerialize(): mixed{
         
         return get_object_vars($this);
@@ -47,6 +49,9 @@ class ExigoRequest implements JsonSerializable
         // return $queryParams;
 
     }
+
+
+    
 
 
 }

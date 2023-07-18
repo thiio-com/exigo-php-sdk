@@ -12,14 +12,14 @@ class CalculateOrderTest extends TestCase
 {
 
 
-   //  const USER      = "dev_api_thiio";
-   //  const PASSWORD  = "&Dh92^KUruF!Zq";
-   //  const COMPANY   = "Yoli";
-
-
-    const USER      = "prod_api_thiio";
-    const PASSWORD  = "84Ny#&I4IC77";
+    const USER      = "dev_api_thiio";
+    const PASSWORD  = "&Dh92^KUruF!Zq";
     const COMPANY   = "Yoli";
+
+
+   //  const USER      = "prod_api_thiio";
+   //  const PASSWORD  = "84Ny#&I4IC77";
+   //  const COMPANY   = "Yoli";
 
 
      /**
