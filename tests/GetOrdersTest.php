@@ -7,65 +7,77 @@ use Thiio\Exigo\Requests\CreateOrder;
 use Thiio\Exigo\Requests\GetOrders;
 use Thiio\Exigo\Requests\OrderDetail;
 
+#vendor/bin/phpunit tests/GetOrdersTest.php
 class GetOrdersTest extends TestCase
 {
 
     const USER      = "dev_api_thiio";
     const PASSWORD  = "&Dh92^KUruF!Zq";
     const COMPANY   = "Yoli";
-
-    public $newOrder;
-
-   
-    // private function createOrder(){
-        
-    //     $faker = Faker\Factory::create();
-        
-    //     $createOrderRequest = new CreateOrder();
-        
-    //     //Adding order details
-    //     $orderDetail = new OrderDetail();
-    //     $orderDetail->setItemCode("DY-BN-50215-US");
-    //     $orderDetail->setQuantity(2);
-        
-    //     $orderDetail2 = new OrderDetail();
-    //     $orderDetail2->setItemCode("DY-BN-50211-US");
-    //     $orderDetail2->setQuantity(1);
-        
-    //     $createOrderRequest->setDetails([$orderDetail, $orderDetail2]);
-        
-    //     //Order Data
-    //     $createOrderRequest->setOrderDate((new DateTime)->format('Y-m-d\TH:i:sP'));
-    //     $createOrderRequest->setWarehouseID(1);
-    //     $createOrderRequest->setShipMethodID(6);
-    //     $createOrderRequest->setCurrencyCode("usd");
-    //     $createOrderRequest->setPriceType(1);
-    //     //$createOrderRequest->setCustomerKey(uniqid()); //Non Alphanumeric enabled
-        
-    //     //Customer Data
-    //     $id = uniqid();
-    //     $customer = $customerResponse->data;
-    //     $createOrderRequest->setCustomerID($customer->customerID);
-    //     $createOrderRequest->setFirstName($faker->firstName());
-    //     $createOrderRequest->setLastName($faker->lastName());
-    //     $createOrderRequest->setEmail("fernando+{$id}@thiio.com");
-
-    //     //Address Data
-    //     $createOrderRequest->setAddress1("11801 stonehollow drive");
-    //     $createOrderRequest->setCountry("US");
-    //     $createOrderRequest->setState("TX");
-    //     $createOrderRequest->setZip("78758");
-    //     $createOrderRequest->setPhone($faker->phoneNumber());
-        
-
-    //     $client = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY);
-
-    //     $response = $client->createOrder($createOrderRequest);
-
-    //     return $response->data;
-    // }
     
-   
+    private function createCustomer(){
+        $faker = Faker\Factory::create();
+        $createCustomerRequest = new CreateCustomer();
+        $createCustomerRequest->setFirstName($faker->firstName());
+        $createCustomerRequest->setLastName($faker->lastName());
+        $createCustomerRequest->setEmail($faker->email());
+        $createCustomerRequest->setCustomerType(1);
+        $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
+        $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
+        
+        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        
+        $response = $exigoClient->createCustomer($createCustomerRequest);
+
+        return $response->data;
+    }
+
+    private function createOrder(){
+        
+        $faker = Faker\Factory::create();
+        
+        $createOrderRequest = new CreateOrder();
+        
+        //Adding order details
+        $orderDetail = new OrderDetail();
+        $orderDetail->setItemCode("DY-BN-50215-US");
+        $orderDetail->setQuantity(2);
+        
+        $orderDetail2 = new OrderDetail();
+        $orderDetail2->setItemCode("DY-BN-50211-US");
+        $orderDetail2->setQuantity(1);
+        
+        $createOrderRequest->setDetails([$orderDetail, $orderDetail2]);
+        
+        //Order Data
+        $createOrderRequest->setOrderDate((new DateTime)->format('Y-m-d\TH:i:sP'));
+        $createOrderRequest->setWarehouseID(1);
+        $createOrderRequest->setShipMethodID(6);
+        $createOrderRequest->setCurrencyCode("usd");
+        $createOrderRequest->setPriceType(1);
+        //$createOrderRequest->setCustomerKey(uniqid()); //Non Alphanumeric enabled
+        
+        //Customer Data
+        $id = uniqid();
+        $customer = $this->createCustomer();
+        $createOrderRequest->setCustomerID($customer->customerID);
+        $createOrderRequest->setFirstName($faker->firstName());
+        $createOrderRequest->setLastName($faker->lastName());
+        $createOrderRequest->setEmail("fernando+{$id}@thiio.com");
+
+        //Address Data
+        $createOrderRequest->setAddress1("11801 stonehollow drive");
+        $createOrderRequest->setCountry("US");
+        $createOrderRequest->setState("TX");
+        $createOrderRequest->setZip("78758");
+        $createOrderRequest->setPhone($faker->phoneNumber());
+
+        $client = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY);
+
+        $response = $client->createOrder($createOrderRequest);
+
+        return $response->data;
+    }
 
     /**
      * @test
@@ -190,6 +202,51 @@ class GetOrdersTest extends TestCase
         $this->assertEquals($data['orderSubStatusTy'], $getOrdersRequest->getorderSubStatusTy());
         $this->assertEquals($data['batchID'], $getOrdersRequest->getbatchID());
         $this->assertEquals($data['orderTys'], $getOrdersRequest->getorderTys());
+
+    }
+
+
+    /**
+     * @test
+     */
+    public function it_should_find_order_by_id(){
+
+        $order = $this->createOrder(); 
+
+        $getOrdersRequest = new GetOrders();
+        $getOrdersRequest->setOrderID($order->orderID);
+
+        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+
+        $response = $exigoClient->getOrders($getOrdersRequest);
+
+        $this->assertTrue($response->success);
+        $this->assertIsArray($response->data->orders);
+
+
+    }
+
+     /**
+     * @test
+     */
+    public function it_should_find_orders_by_ids(){
+
+        $orderA = $this->createOrder(); 
+        $orderB = $this->createOrder(); 
+        $orderC = $this->createOrder(); 
+        $orderD = $this->createOrder(); 
+
+        $getOrdersRequest = new GetOrders();
+        $getOrdersRequest->setOrderIDs([$orderA->orderID,$orderB->orderID,$orderC->orderID, $orderD->orderID]);
+
+        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+
+        $response = $exigoClient->getOrders($getOrdersRequest);
+
+        $this->assertTrue($response->success);
+        $this->assertIsArray($response->data->orders);
+        $this->assertCount(4,$response->data->orders);
+
 
     }
 

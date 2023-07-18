@@ -11,7 +11,7 @@ use Thiio\Exigo\Requests\GetOrders;
 
 class ExigoApi extends Client
 {
-    const DEBUG = true;
+    const DEBUG = false;
 
 
     public function __construct(string $login, string $password, string $company, string $env = "PRODUCTION")

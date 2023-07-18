@@ -66,10 +66,22 @@ class GetCustomersTest extends TestCase
      */
     public function it_should_fetch_a_customer_by_email(){
         
-        $customer = $this->createCustomer();
-
+        $faker = Faker\Factory::create();
+        $createCustomerRequest = new CreateCustomer();
+        $createCustomerRequest->setFirstName($faker->firstName());
+        $createCustomerRequest->setLastName($faker->lastName());
+        $createCustomerRequest->setEmail($faker->email());
+        $createCustomerRequest->setCustomerType(1);
+        $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
+        $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
+        
+        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        
+        $exigoClient->createCustomer($createCustomerRequest);
+        
         $getCustomersRequest = new GetCustomers();
-        $getCustomersRequest->setEmail($customer->email);
+        
+        $getCustomersRequest->setEmail($createCustomerRequest->getEmail());
 
         $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
         
@@ -77,6 +89,8 @@ class GetCustomersTest extends TestCase
         
         $this->assertTrue($response->success);
         $this->assertIsArray($response->data->customers);
+        $this->assertEquals($response->data->customers[0]->email, $createCustomerRequest->getEmail());
+
 
     }
 

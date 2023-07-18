@@ -226,7 +226,6 @@ class CreateOrderTest extends TestCase
         return $response->data;
     }
 
-
     /**
      * @test
      */
@@ -278,7 +277,7 @@ class CreateOrderTest extends TestCase
         $response = $client->createOrder($createOrderRequest);
 
         $this->assertTrue($response->success);
-        $this->assertNotNull($response->data->OrderID);
+        $this->assertNotNull($response->data->orderID);
 
 
         
