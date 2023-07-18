@@ -59,6 +59,262 @@ class CreateOrder extends ExigoRequest
     public $customerKey;
     public $orderSubStatusTy;
 
+    public function setCustomerID(int $customerId)
+    {
+        $this->customerID = $customerId;
+    }
+
+    public function setOrderStatus(int $orderStatus)
+    {
+        $this->orderStatus = $orderStatus;
+    }
+
+    public function setOrderDate(string $orderDate)
+    {
+        $this->orderDate = $orderDate;
+    }
+
+    public function setCurrencyCode(string $currencyCode)
+    {
+        $this->currencyCode = $currencyCode;
+    }
+
+    public function setWarehouseID(int $warehouseId)
+    {
+        $this->warehouseID = $warehouseId;
+    }
+
+    public function setShipMethodID(int $shipMethodId)
+    {
+        $this->shipMethodID = $shipMethodId;
+    }
+
+    public function setPriceType(int $priceType)
+    {
+        $this->priceType = $priceType;
+    }
+
+    public function setFirstName(?string $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function setMiddleName(?string $middleName)
+    {
+        $this->middleName = $middleName;
+    }
+
+    public function setLastName(?string $lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    public function setNameSuffix(?string $nameSuffix)
+    {
+        $this->nameSuffix = $nameSuffix;
+    }
+
+    public function setCompany(?string $company)
+    {
+        $this->company = $company;
+    }
+
+    public function setAddress1(?string $address1)
+    {
+        $this->address1 = $address1;
+    }
+
+    public function setAddress2(?string $address2)
+    {
+        $this->address2 = $address2;
+    }
+
+    public function setAddress3(?string $address3)
+    {
+        $this->address3 = $address3;
+    }
+
+    public function setCity(?string $city)
+    {
+        $this->city = $city;
+    }
+
+    public function setState(string $state)
+    {
+        $this->state = $state;
+    }
+
+    public function setZip(?string $zip)
+    {
+        $this->zip = $zip;
+    }
+
+    public function setCountry(string $country)
+    {
+        $this->country = $country;
+    }
+
+    public function setCounty(?string $county)
+    {
+        $this->county = $county;
+    }
+
+    public function setEmail(?string $email)
+    {
+        $this->email = $email;
+    }
+
+    public function setPhone(?string $phone)
+    {
+        $this->phone = $phone;
+    }
+
+    public function setNotes(?string $notes)
+    {
+        $this->notes = $notes;
+    }
+
+    public function setOther11(?string $other11)
+    {
+        $this->other11 = $other11;
+    }
+
+    public function setOther12(?string $other12)
+    {
+        $this->other12 = $other12;
+    }
+
+    public function setOther13(?string $other13)
+    {
+        $this->other13 = $other13;
+    }
+
+    public function setOther14(?string $other14)
+    {
+        $this->other14 = $other14;
+    }
+
+    public function setOther15(?string $other15)
+    {
+        $this->other15 = $other15;
+    }
+
+    public function setOther16(?string $other16)
+    {
+        $this->other16 = $other16;
+    }
+
+    public function setOther17(?string $other17)
+    {
+        $this->other17 = $other17;
+    }
+
+    public function setOther18(?string $other18)
+    {
+        $this->other18 = $other18;
+    }
+
+    public function setOther19(?string $other19)
+    {
+        $this->other19 = $other19;
+    }
+
+    public function setOther20(?string $other20)
+    {
+        $this->other20 = $other20;
+    }
+
+    public function setOrderType(int $orderType)
+    {
+        $this->orderType = $orderType;
+    }
+
+    public function setTaxRateOverride(?float $taxRateOverride)
+    {
+        $this->taxRateOverride = $taxRateOverride;
+    }
+
+    public function setShippingAmountOverride(?float $shippingAmountOverride)
+    {
+        $this->shippingAmountOverride = $shippingAmountOverride;
+    }
+
+    public function setUseManualOrderID(?bool $useManualOrderId)
+    {
+        $this->useManualOrderID = $useManualOrderId;
+    }
+
+    public function setManualOrderID(?int $manualOrderId)
+    {
+        $this->manualOrderID = $manualOrderId;
+    }
+
+    public function setTransferVolumeToID(?int $transferVolumeToId)
+    {
+        $this->transferVolumeToID = $transferVolumeToId;
+    }
+
+    public function setReturnOrderID(?int $returnOrderId)
+    {
+        $this->returnOrderID = $returnOrderId;
+    }
+
+    public function setOverwriteExistingOrder(bool $overwriteExistingOrder)
+    {
+        $this->overwriteExistingOrder = $overwriteExistingOrder;
+    }
+
+    public function setExistingOrderID(?int $existingOrderId)
+    {
+        $this->existingOrderID = $existingOrderId;
+    }
+
+    public function setPartyID(?int $partyId)
+    {
+        $this->partyID = $partyId;
+    }
+
+    public function setDetails(array $details)
+    {
+        $this->details = $details;
+    }
+
+    public function setSuppressPackSlipPrice(bool $suppressPackSlipPrice)
+    {
+        $this->suppressPackSlipPrice = $suppressPackSlipPrice;
+
+    }
+
+    public function setTransferVolumeToKey(?string $transferVolumeToKey)
+    {
+        $this->transferVolumeToKey = $transferVolumeToKey;
+    }
+
+    public function setReturnOrderKey(?string $returnOrderKey)
+    {
+        $this->returnOrderKey = $returnOrderKey;
+    }
+
+    public function setManualOrderKey(?string $manualOrderKey)
+    {
+        $this->manualOrderKey = $manualOrderKey;
+    }
+
+    public function setExistingOrderKey(?string $existingOrderKey)
+    {
+        $this->existingOrderKey = $existingOrderKey;
+    }
+
+    public function setCustomerKey(?string $customerKey)
+    {
+        $this->customerKey = $customerKey;
+    }
+
+    public function setOrderSubStatusTy(?int $orderSubStatusTy)
+    {
+        $this->orderSubStatusTy = $orderSubStatusTy;
+    }
+    
 
     /**
      * Get the value of customerID
@@ -66,18 +322,6 @@ class CreateOrder extends ExigoRequest
     public function getCustomerID()
     {
         return $this->customerID;
-    }
-
-    /**
-     * Set the value of customerID
-     *
-     * @return  self
-     */ 
-    public function setCustomerID($customerID)
-    {
-        $this->customerID = $customerID;
-
-        return $this;
     }
 
     /**
@@ -89,35 +333,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of orderStatus
-     *
-     * @return  self
-     */ 
-    public function setOrderStatus($orderStatus)
-    {
-        $this->orderStatus = $orderStatus;
-
-        return $this;
-    }
-
-    /**
      * Get the value of orderDate
      */ 
     public function getOrderDate()
     {
         return $this->orderDate;
-    }
-
-    /**
-     * Set the value of orderDate
-     *
-     * @return  self
-     */ 
-    public function setOrderDate($orderDate)
-    {
-        $this->orderDate = $orderDate;
-
-        return $this;
     }
 
     /**
@@ -129,35 +349,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of currencyCode
-     *
-     * @return  self
-     */ 
-    public function setCurrencyCode($currencyCode)
-    {
-        $this->currencyCode = $currencyCode;
-
-        return $this;
-    }
-
-    /**
      * Get the value of warehouseID
      */ 
     public function getWarehouseID()
     {
         return $this->warehouseID;
-    }
-
-    /**
-     * Set the value of warehouseID
-     *
-     * @return  self
-     */ 
-    public function setWarehouseID($warehouseID)
-    {
-        $this->warehouseID = $warehouseID;
-
-        return $this;
     }
 
     /**
@@ -169,35 +365,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of shipMethodID
-     *
-     * @return  self
-     */ 
-    public function setShipMethodID($shipMethodID)
-    {
-        $this->shipMethodID = $shipMethodID;
-
-        return $this;
-    }
-
-    /**
      * Get the value of priceType
      */ 
     public function getPriceType()
     {
         return $this->priceType;
-    }
-
-    /**
-     * Set the value of priceType
-     *
-     * @return  self
-     */ 
-    public function setPriceType($priceType)
-    {
-        $this->priceType = $priceType;
-
-        return $this;
     }
 
     /**
@@ -209,35 +381,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of firstName
-     *
-     * @return  self
-     */ 
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
      * Get the value of middleName
      */ 
     public function getMiddleName()
     {
         return $this->middleName;
-    }
-
-    /**
-     * Set the value of middleName
-     *
-     * @return  self
-     */ 
-    public function setMiddleName($middleName)
-    {
-        $this->middleName = $middleName;
-
-        return $this;
     }
 
     /**
@@ -249,35 +397,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of lastName
-     *
-     * @return  self
-     */ 
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
      * Get the value of nameSuffix
      */ 
     public function getNameSuffix()
     {
         return $this->nameSuffix;
-    }
-
-    /**
-     * Set the value of nameSuffix
-     *
-     * @return  self
-     */ 
-    public function setNameSuffix($nameSuffix)
-    {
-        $this->nameSuffix = $nameSuffix;
-
-        return $this;
     }
 
     /**
@@ -289,35 +413,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of company
-     *
-     * @return  self
-     */ 
-    public function setCompany($company)
-    {
-        $this->company = $company;
-
-        return $this;
-    }
-
-    /**
      * Get the value of address1
      */ 
     public function getAddress1()
     {
         return $this->address1;
-    }
-
-    /**
-     * Set the value of address1
-     *
-     * @return  self
-     */ 
-    public function setAddress1($address1)
-    {
-        $this->address1 = $address1;
-
-        return $this;
     }
 
     /**
@@ -329,35 +429,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of address2
-     *
-     * @return  self
-     */ 
-    public function setAddress2($address2)
-    {
-        $this->address2 = $address2;
-
-        return $this;
-    }
-
-    /**
      * Get the value of address3
      */ 
     public function getAddress3()
     {
         return $this->address3;
-    }
-
-    /**
-     * Set the value of address3
-     *
-     * @return  self
-     */ 
-    public function setAddress3($address3)
-    {
-        $this->address3 = $address3;
-
-        return $this;
     }
 
     /**
@@ -369,35 +445,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of city
-     *
-     * @return  self
-     */ 
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
      * Get the value of state
      */ 
     public function getState()
     {
         return $this->state;
-    }
-
-    /**
-     * Set the value of state
-     *
-     * @return  self
-     */ 
-    public function setState($state)
-    {
-        $this->state = $state;
-
-        return $this;
     }
 
     /**
@@ -409,35 +461,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of zip
-     *
-     * @return  self
-     */ 
-    public function setZip($zip)
-    {
-        $this->zip = $zip;
-
-        return $this;
-    }
-
-    /**
      * Get the value of country
      */ 
     public function getCountry()
     {
         return $this->country;
-    }
-
-    /**
-     * Set the value of country
-     *
-     * @return  self
-     */ 
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
     }
 
     /**
@@ -449,35 +477,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of county
-     *
-     * @return  self
-     */ 
-    public function setCounty($county)
-    {
-        $this->county = $county;
-
-        return $this;
-    }
-
-    /**
      * Get the value of email
      */ 
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set the value of email
-     *
-     * @return  self
-     */ 
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -489,35 +493,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of phone
-     *
-     * @return  self
-     */ 
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
      * Get the value of notes
      */ 
     public function getNotes()
     {
         return $this->notes;
-    }
-
-    /**
-     * Set the value of notes
-     *
-     * @return  self
-     */ 
-    public function setNotes($notes)
-    {
-        $this->notes = $notes;
-
-        return $this;
     }
 
     /**
@@ -529,35 +509,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of other11
-     *
-     * @return  self
-     */ 
-    public function setOther11($other11)
-    {
-        $this->other11 = $other11;
-
-        return $this;
-    }
-
-    /**
      * Get the value of other12
      */ 
     public function getOther12()
     {
         return $this->other12;
-    }
-
-    /**
-     * Set the value of other12
-     *
-     * @return  self
-     */ 
-    public function setOther12($other12)
-    {
-        $this->other12 = $other12;
-
-        return $this;
     }
 
     /**
@@ -569,35 +525,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of other13
-     *
-     * @return  self
-     */ 
-    public function setOther13($other13)
-    {
-        $this->other13 = $other13;
-
-        return $this;
-    }
-
-    /**
      * Get the value of other14
      */ 
     public function getOther14()
     {
         return $this->other14;
-    }
-
-    /**
-     * Set the value of other14
-     *
-     * @return  self
-     */ 
-    public function setOther14($other14)
-    {
-        $this->other14 = $other14;
-
-        return $this;
     }
 
     /**
@@ -609,35 +541,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of other15
-     *
-     * @return  self
-     */ 
-    public function setOther15($other15)
-    {
-        $this->other15 = $other15;
-
-        return $this;
-    }
-
-    /**
      * Get the value of other16
      */ 
     public function getOther16()
     {
         return $this->other16;
-    }
-
-    /**
-     * Set the value of other16
-     *
-     * @return  self
-     */ 
-    public function setOther16($other16)
-    {
-        $this->other16 = $other16;
-
-        return $this;
     }
 
     /**
@@ -649,35 +557,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of other17
-     *
-     * @return  self
-     */ 
-    public function setOther17($other17)
-    {
-        $this->other17 = $other17;
-
-        return $this;
-    }
-
-    /**
      * Get the value of other18
      */ 
     public function getOther18()
     {
         return $this->other18;
-    }
-
-    /**
-     * Set the value of other18
-     *
-     * @return  self
-     */ 
-    public function setOther18($other18)
-    {
-        $this->other18 = $other18;
-
-        return $this;
     }
 
     /**
@@ -689,35 +573,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of other19
-     *
-     * @return  self
-     */ 
-    public function setOther19($other19)
-    {
-        $this->other19 = $other19;
-
-        return $this;
-    }
-
-    /**
      * Get the value of other20
      */ 
     public function getOther20()
     {
         return $this->other20;
-    }
-
-    /**
-     * Set the value of other20
-     *
-     * @return  self
-     */ 
-    public function setOther20($other20)
-    {
-        $this->other20 = $other20;
-
-        return $this;
     }
 
     /**
@@ -729,35 +589,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of orderType
-     *
-     * @return  self
-     */ 
-    public function setOrderType($orderType)
-    {
-        $this->orderType = $orderType;
-
-        return $this;
-    }
-
-    /**
      * Get the value of taxRateOverride
      */ 
     public function getTaxRateOverride()
     {
         return $this->taxRateOverride;
-    }
-
-    /**
-     * Set the value of taxRateOverride
-     *
-     * @return  self
-     */ 
-    public function setTaxRateOverride($taxRateOverride)
-    {
-        $this->taxRateOverride = $taxRateOverride;
-
-        return $this;
     }
 
     /**
@@ -769,35 +605,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of shippingAmountOverride
-     *
-     * @return  self
-     */ 
-    public function setShippingAmountOverride($shippingAmountOverride)
-    {
-        $this->shippingAmountOverride = $shippingAmountOverride;
-
-        return $this;
-    }
-
-    /**
      * Get the value of useManualOrderID
      */ 
     public function getUseManualOrderID()
     {
         return $this->useManualOrderID;
-    }
-
-    /**
-     * Set the value of useManualOrderID
-     *
-     * @return  self
-     */ 
-    public function setUseManualOrderID($useManualOrderID)
-    {
-        $this->useManualOrderID = $useManualOrderID;
-
-        return $this;
     }
 
     /**
@@ -809,35 +621,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of manualOrderID
-     *
-     * @return  self
-     */ 
-    public function setManualOrderID($manualOrderID)
-    {
-        $this->manualOrderID = $manualOrderID;
-
-        return $this;
-    }
-
-    /**
      * Get the value of transferVolumeToID
      */ 
     public function getTransferVolumeToID()
     {
         return $this->transferVolumeToID;
-    }
-
-    /**
-     * Set the value of transferVolumeToID
-     *
-     * @return  self
-     */ 
-    public function setTransferVolumeToID($transferVolumeToID)
-    {
-        $this->transferVolumeToID = $transferVolumeToID;
-
-        return $this;
     }
 
     /**
@@ -849,35 +637,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of returnOrderID
-     *
-     * @return  self
-     */ 
-    public function setReturnOrderID($returnOrderID)
-    {
-        $this->returnOrderID = $returnOrderID;
-
-        return $this;
-    }
-
-    /**
      * Get the value of overwriteExistingOrder
      */ 
     public function getOverwriteExistingOrder()
     {
         return $this->overwriteExistingOrder;
-    }
-
-    /**
-     * Set the value of overwriteExistingOrder
-     *
-     * @return  self
-     */ 
-    public function setOverwriteExistingOrder($overwriteExistingOrder)
-    {
-        $this->overwriteExistingOrder = $overwriteExistingOrder;
-
-        return $this;
     }
 
     /**
@@ -889,35 +653,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of existingOrderID
-     *
-     * @return  self
-     */ 
-    public function setExistingOrderID($existingOrderID)
-    {
-        $this->existingOrderID = $existingOrderID;
-
-        return $this;
-    }
-
-    /**
      * Get the value of partyID
      */ 
     public function getPartyID()
     {
         return $this->partyID;
-    }
-
-    /**
-     * Set the value of partyID
-     *
-     * @return  self
-     */ 
-    public function setPartyID($partyID)
-    {
-        $this->partyID = $partyID;
-
-        return $this;
     }
 
     /**
@@ -929,35 +669,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of details
-     *
-     * @return  self
-     */ 
-    public function setDetails($details)
-    {
-        $this->details = $details;
-
-        return $this;
-    }
-
-    /**
      * Get the value of suppressPackSlipPrice
      */ 
     public function getSuppressPackSlipPrice()
     {
         return $this->suppressPackSlipPrice;
-    }
-
-    /**
-     * Set the value of suppressPackSlipPrice
-     *
-     * @return  self
-     */ 
-    public function setSuppressPackSlipPrice($suppressPackSlipPrice)
-    {
-        $this->suppressPackSlipPrice = $suppressPackSlipPrice;
-
-        return $this;
     }
 
     /**
@@ -969,35 +685,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of transferVolumeToKey
-     *
-     * @return  self
-     */ 
-    public function setTransferVolumeToKey($transferVolumeToKey)
-    {
-        $this->transferVolumeToKey = $transferVolumeToKey;
-
-        return $this;
-    }
-
-    /**
      * Get the value of returnOrderKey
      */ 
     public function getReturnOrderKey()
     {
         return $this->returnOrderKey;
-    }
-
-    /**
-     * Set the value of returnOrderKey
-     *
-     * @return  self
-     */ 
-    public function setReturnOrderKey($returnOrderKey)
-    {
-        $this->returnOrderKey = $returnOrderKey;
-
-        return $this;
     }
 
     /**
@@ -1009,35 +701,11 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of manualOrderKey
-     *
-     * @return  self
-     */ 
-    public function setManualOrderKey($manualOrderKey)
-    {
-        $this->manualOrderKey = $manualOrderKey;
-
-        return $this;
-    }
-
-    /**
      * Get the value of existingOrderKey
      */ 
     public function getExistingOrderKey()
     {
         return $this->existingOrderKey;
-    }
-
-    /**
-     * Set the value of existingOrderKey
-     *
-     * @return  self
-     */ 
-    public function setExistingOrderKey($existingOrderKey)
-    {
-        $this->existingOrderKey = $existingOrderKey;
-
-        return $this;
     }
 
     /**
@@ -1049,34 +717,10 @@ class CreateOrder extends ExigoRequest
     }
 
     /**
-     * Set the value of customerKey
-     *
-     * @return  self
-     */ 
-    public function setCustomerKey($customerKey)
-    {
-        $this->customerKey = $customerKey;
-
-        return $this;
-    }
-
-    /**
      * Get the value of orderSubStatusTy
      */ 
     public function getOrderSubStatusTy()
     {
         return $this->orderSubStatusTy;
-    }
-
-    /**
-     * Set the value of orderSubStatusTy
-     *
-     * @return  self
-     */ 
-    public function setOrderSubStatusTy($orderSubStatusTy)
-    {
-        $this->orderSubStatusTy = $orderSubStatusTy;
-
-        return $this;
     }
 }
