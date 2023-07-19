@@ -1,6 +1,6 @@
 <?php
 
-namespace Requests;
+namespace Thiio\Exigo\Requests\OrdersPayments;
 
 use Thiio\Exigo\Requests\ExigoRequest;
 

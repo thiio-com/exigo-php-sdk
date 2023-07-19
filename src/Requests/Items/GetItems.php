@@ -1,6 +1,8 @@
 <?php
 
-namespace Thiio\Exigo\Requests;
+namespace Thiio\Exigo\Requests\Items;
+
+use Thiio\Exigo\Requests\ExigoRequest;
 
 class GetItems extends ExigoRequest
 {

@@ -1,11 +1,11 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use Thiio\Exigo\Http\ExigoApi;
-use Thiio\Exigo\Requests\CreateCustomer;
-use Thiio\Exigo\Requests\CreateOrder;
-use Thiio\Exigo\Requests\GetOrders;
-use Thiio\Exigo\Requests\OrderDetail;
+use PHPUnit\Framework\TestCase;
+use Thiio\Exigo\Requests\OrdersPayments\OrderDetail;
+use Thiio\Exigo\Requests\Customers\CreateCustomer;
+use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
+use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
 
 #vendor/bin/phpunit tests/GetOrdersTest.php
 class GetOrdersTest extends TestCase

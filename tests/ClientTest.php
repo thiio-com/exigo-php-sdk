@@ -1,10 +1,10 @@
 <?php
 
-use Exceptions\ExigoRequestException;
-use PHPUnit\Framework\TestCase;
 use Requests\Http\Client;
+use PHPUnit\Framework\TestCase;
+use Exceptions\ExigoRequestException;
 use Thiio\Exigo\Http\ExigoApi as ExigoClient;
-use Thiio\Exigo\Requests\CalculateOrder;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 
 #vendor/bin/phpunit tests/ClientTest.php
 class ClientTest extends TestCase{

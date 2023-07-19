@@ -3,7 +3,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-use Thiio\Exigo\Requests\GetItems;
+use Thiio\Exigo\Requests\Items\GetItems;
 
 use Thiio\Exigo\Http\Client;
 use Thiio\Exigo\Http\ExigoApi;

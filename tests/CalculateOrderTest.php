@@ -1,11 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-
-use Thiio\Exigo\Requests\CalculateOrder;
-
 use Thiio\Exigo\Http\ExigoApi;
-use Thiio\Exigo\Requests\OrderDetail;
+use PHPUnit\Framework\TestCase;
+use Thiio\Exigo\Requests\OrdersPayments\OrderDetail;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 
 #vendor/bin/phpunit tests/CalculateOrderTest.php
 class CalculateOrderTest extends TestCase

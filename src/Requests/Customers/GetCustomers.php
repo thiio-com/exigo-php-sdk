@@ -1,6 +1,8 @@
 <?php
 
-namespace Thiio\Exigo\Requests;
+namespace Thiio\Exigo\Requests\Customers;
+
+use Thiio\Exigo\Requests\ExigoRequest;
 
 class GetCustomers extends ExigoRequest
 {
