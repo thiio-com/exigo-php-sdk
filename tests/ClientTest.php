@@ -1,10 +1,10 @@
 <?php
 
-use Exceptions\ExigoRequestException;
-use PHPUnit\Framework\TestCase;
 use Requests\Http\Client;
-use Thiio\Exigo\Http\Client as ExigoClient;
-use Thiio\Exigo\Requests\CalculateOrder;
+use PHPUnit\Framework\TestCase;
+use Exceptions\ExigoRequestException;
+use Thiio\Exigo\Http\ExigoApi as ExigoClient;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 
 #vendor/bin/phpunit tests/ClientTest.php
 class ClientTest extends TestCase{
@@ -96,7 +96,7 @@ class ClientTest extends TestCase{
         
         $company = strtolower(self::COMPANY);
         
-        $url = "https://{$company}-api.exigo.com/3.0";
+        $url = "https://{$company}-api.exigo.com";
 
         $client     = new ExigoClient(self::USER,self::PASSWORD,self::COMPANY);
         $reflection = new ReflectionClass(ExigoClient::class);

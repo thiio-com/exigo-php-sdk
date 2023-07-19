@@ -1,15 +1,24 @@
 <?php
 
+use Thiio\Exigo\Http\ExigoApi;
 use PHPUnit\Framework\TestCase;
-
-use Thiio\Exigo\Requests\CalculateOrder;
-
-
-
+use Thiio\Exigo\Requests\OrdersPayments\OrderDetail;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 
 #vendor/bin/phpunit tests/CalculateOrderTest.php
 class CalculateOrderTest extends TestCase
 {
+
+
+    const USER      = "dev_api_thiio";
+    const PASSWORD  = "&Dh92^KUruF!Zq";
+    const COMPANY   = "Yoli";
+
+
+   //  const USER      = "prod_api_thiio";
+   //  const PASSWORD  = "84Ny#&I4IC77";
+   //  const COMPANY   = "Yoli";
+
 
      /**
      * @test
@@ -149,6 +158,45 @@ class CalculateOrderTest extends TestCase
         $this->assertEquals($data['orderSubStatusTy'],$calculateOrder->getOrderSubStatusTy());
 
     }
+
+    /**
+     * @test
+     */
+
+     public function it_should_calculate_an_order(){
+
+        $orderDetail = new OrderDetail();
+        $orderDetail->setItemCode("DY-BN-50215-US");
+        $orderDetail->setQuantity(2);
+
+        $orderDetail2 = new OrderDetail();
+        $orderDetail2->setItemCode("DY-BN-50211-US");
+        $orderDetail2->setQuantity(1);
+
+        $calculateOrderRequest = new CalculateOrder();
+        $calculateOrderRequest->setCurrencyCode("usd");
+        $calculateOrderRequest->setWarehouseID(1);
+        $calculateOrderRequest->setShipMethodID(6);//UPS Next Day	
+        $calculateOrderRequest->setPriceType(1);
+      //   $calculateOrderRequest->setAddress1("11801 stonehollow drive");
+      //   $calculateOrderRequest->setAddress2("");
+      //   $calculateOrderRequest->setAddress3("");
+      //   $calculateOrderRequest->setCity("Austin");
+        $calculateOrderRequest->setState("TX");//Required
+      //   $calculateOrderRequest->setZip("78758");
+        $calculateOrderRequest->setCountry("US");//Required
+      //   $calculateOrderRequest->setCounty("");
+        $calculateOrderRequest->setDetails([$orderDetail->toArray(), $orderDetail2->toArray()]);
+        
+        $exigoClient           = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+
+        $response = $exigoClient->calculateOrder($calculateOrderRequest);
+        
+        
+        $this->assertTrue($response->success);
+        $this->assertIsObject($response->data);
+
+     }
 
 
 }

@@ -1,10 +1,12 @@
 <?php
 
-namespace Thiio\Exigo\Requests;
+namespace Thiio\Exigo\Requests\OrdersPayments;
+
+use Thiio\Exigo\Requests\ExigoRequest;
 
 class CalculateOrder extends ExigoRequest {
 
-    const ENDPOINT = "/orders/calculate";
+    const ENDPOINT = self::API_VERSION."/orders/calculate";
 
     protected $currencyCode;
     protected $warehouseID;

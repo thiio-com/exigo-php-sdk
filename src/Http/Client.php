@@ -10,7 +10,7 @@ use Exceptions\ExigoRequestException;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use Psr\Http\Message\ResponseInterface;
 use stdClass;
-use Thiio\Exigo\Requests\CalculateOrder;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 use Thiio\Exigo\Abstract\Endpoints;
 
 
@@ -109,6 +109,7 @@ class Client
             
             $client = $this->buildClient();
 
+            
             $response = $client->request($verb, $url, $data);
             
             return $this->handleResponse($response);
@@ -124,6 +125,7 @@ class Client
     }
 
     private function handleResponse(ResponseInterface $response){
+        $this->log("good");
         $apiResponse          = new stdClass();
         $apiResponse->success = false;
         $apiResponse->msg     = "";
@@ -146,7 +148,8 @@ class Client
 
 
     private function handleErrorResponse(Exception $e){
-
+        $this->log("bad");
+        $this->log($e->getMessage());
         $apiResponse            = new stdClass();
         $apiResponse->success   = false;
         $apiResponse->msg       = $e->getMessage();
