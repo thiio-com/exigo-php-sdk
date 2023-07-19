@@ -2,8 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 use Thiio\Exigo\Http\ExigoApi;
-use Thiio\Exigo\Requests\CreateCustomer;
-use Thiio\Exigo\Requests\GetCustomers;
+use Thiio\Exigo\Requests\Customers\CreateCustomer;
+use Thiio\Exigo\Requests\Customers\GetCustomers;
 
 #vendor/bin/phpunit tests/GetCustomersTest.php
 class GetCustomersTest extends TestCase

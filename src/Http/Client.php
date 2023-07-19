@@ -10,7 +10,7 @@ use Exceptions\ExigoRequestException;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use Psr\Http\Message\ResponseInterface;
 use stdClass;
-use Thiio\Exigo\Requests\CalculateOrder;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 use Thiio\Exigo\Abstract\Endpoints;
 
 

@@ -1,8 +1,9 @@
 <?php
 
-namespace Thiio\Exigo\Requests;
+namespace Thiio\Exigo\Requests\OrdersPayments;
 
 use DateTime;
+use Thiio\Exigo\Requests\ExigoRequest;
 
 class GetOrders extends ExigoRequest
 {

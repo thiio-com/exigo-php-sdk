@@ -2,12 +2,12 @@
 
 namespace Thiio\Exigo\Http;
 
-use Thiio\Exigo\Requests\CalculateOrder;
-use Thiio\Exigo\Requests\CreateCustomer;
-use Thiio\Exigo\Requests\CreateOrder;
-use Thiio\Exigo\Requests\GetCustomers;
-use Thiio\Exigo\Requests\GetItems;
-use Thiio\Exigo\Requests\GetOrders;
+use Thiio\Exigo\Requests\Items\GetItems;
+use Thiio\Exigo\Requests\Customers\GetCustomers;
+use Thiio\Exigo\Requests\Customers\CreateCustomer;
+use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
+use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
+use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 
 class ExigoApi extends Client
 {

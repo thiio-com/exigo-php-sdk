@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-use Thiio\Exigo\Requests\CreateCustomer;
+use Thiio\Exigo\Requests\Customers\CreateCustomer;
 use Thiio\Exigo\Http\ExigoApi;
 
 #vendor/bin/phpunit tests/CreateCustomerTest.php
