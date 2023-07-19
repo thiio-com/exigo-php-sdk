@@ -259,4 +259,49 @@ class ProcessTransactionTest extends TestCase
     }
 
 
+    /**
+     * @test
+     */
+    public function it_should_merge_transactions_correctly(){
+
+        $customer = $this->buildCustomerBlueprint();
+        $customerTransaction = new Transaction();
+        $customerTransaction->setName("CreateCustomerRequest");
+        foreach($customer as $key => $value){
+            $customerTransaction->addParameter($key,$value);
+        }
+
+        $order    = $this->buildOrderBlueprint();
+        $orderTransaction = new Transaction();
+        $orderTransaction->setName("CreateOrderRequest");
+        foreach($order as $key => $value){
+            $orderTransaction->addParameter($key,$value);
+        }
+
+        $charge   = $this->buildChargeCreditCardTokenBlueprint();
+        $chargeTransaction = new Transaction();
+        $chargeTransaction->setName("ChargeCreditCardTokenRequest");
+        foreach($charge as $key => $value){
+            $chargeTransaction->addParameter($key,$value);
+        }
+
+        $processTransaction = new ProcessTransaction();
+        $processTransaction->addTransactions([$customerTransaction]);
+        $processTransaction->addTransactions([$orderTransaction, $chargeTransaction]);
+
+        
+        $this->assertIsArray($processTransaction->toArray());
+        $this->assertEquals(
+            json_encode([
+                    "transactionRequests" => [
+                        $customerTransaction->toArray(),
+                        $orderTransaction->toArray(), 
+                        $chargeTransaction->toArray()
+                    ]
+                ]
+            ), json_encode($processTransaction->toArray()));
+
+    }
+
+
 }
