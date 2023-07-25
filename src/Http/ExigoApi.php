@@ -8,6 +8,7 @@ use Thiio\Exigo\Requests\Customers\CreateCustomer;
 use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
 use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
 use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
+use Thiio\Exigo\Requests\OrdersPayments\ChargeCreditCardToken;
 use Thiio\Exigo\Requests\OrdersPayments\ProcessTransaction;
 
 class ExigoApi extends Client
@@ -26,6 +27,17 @@ class ExigoApi extends Client
      * https://api.exigo.com/3.0/ExigoApi.asmx?op=CalculateOrder
      */
     public function calculateOrder( CalculateOrder $request, string $method = "POST", array $data = [] ){
+        
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
+
+    }
+
+
+    /**
+     * ChargeCreditCardToken 
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=ChargeCreditCardToken
+     */
+    public function chargeCreditCardToken( ChargeCreditCardToken $request, string $method = "POST", array $data = [] ){
         
         return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 

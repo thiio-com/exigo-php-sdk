@@ -6,21 +6,11 @@
 namespace Thiio\Exigo\Http;
 
 use Exception;
-use Exceptions\ExigoRequestException;
 use GuzzleHttp\Client as GuzzleHttpClient;
-use Psr\Http\Message\ResponseInterface;
 use stdClass;
-use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
-use Thiio\Exigo\Abstract\Endpoints;
+use Psr\Http\Message\ResponseInterface;
 
 
-use Monolog\Level;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\FirePHPHandler;
-
-// $exigoClient = new Client();
-// $response = $exigoClient->calculateOrder($order);
 
 class Client
 {
@@ -123,7 +113,6 @@ class Client
     }
 
     private function handleResponse(ResponseInterface $response){
-        $this->log("good");
         $apiResponse          = new stdClass();
         $apiResponse->success = false;
         $apiResponse->msg     = "";
@@ -140,33 +129,21 @@ class Client
         $apiResponse->msg     = "Success Request";
         $apiResponse->success = true;
         $apiResponse->data    = json_decode($response->getBody());
-        $this->log($apiResponse);
         return $apiResponse; 
     }
 
 
     private function handleErrorResponse(Exception $e){
-        $this->log("bad");
-        $this->log($e->getMessage());
         $apiResponse            = new stdClass();
         $apiResponse->success   = false;
         $apiResponse->msg       = $e->getMessage();
         $apiResponse->exception = $e->getTrace();
-        $this->log($apiResponse);
         return $apiResponse;
 
     }
 
 
-    public function log($data){
-        $logger = new Logger('my_logger');
-        // Now add some handlers
-        $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Level::Debug));
-        $logger->pushHandler(new FirePHPHandler());
-        $message = json_encode($data);
-        $logger->info($message);
-
-    }
+  
 
 
 

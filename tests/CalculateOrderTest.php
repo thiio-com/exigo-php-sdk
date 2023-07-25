@@ -8,7 +8,7 @@ use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 #vendor/bin/phpunit tests/CalculateOrderTest.php
 class CalculateOrderTest extends TestCase
 {
-    
+
 
      /**
      * @test

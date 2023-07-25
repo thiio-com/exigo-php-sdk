@@ -5,15 +5,8 @@ use PHPUnit\Framework\TestCase;
 
 use Thiio\Exigo\Requests\Items\GetItems;
 
-use Thiio\Exigo\Http\Client;
 use Thiio\Exigo\Http\ExigoApi;
 
-
-
-use Monolog\Level;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\FirePHPHandler;
 
 #vendor/bin/phpunit tests/GetItemsTest.php
 class GetItemsTest extends TestCase
@@ -114,7 +107,6 @@ class GetItemsTest extends TestCase
         $getItemsReq->setExcludeHideFromSearch(true);
 
        $string = "?".http_build_query($getItemsReq->toArray());
-       //$string = "?currencyCode=USD&priceType=12&warehouseID=1&itemCodes=[1,2,3]&webID=3&webCategoryID=2&returnLongDetail=1&restrictToWarehouse=1&languageID=1&excludeHideFromSearch=1";
 
        $this->assertEquals($string, $getItemsReq->convertAttributesToQueryParams());
 
@@ -154,18 +146,6 @@ class GetItemsTest extends TestCase
         $this->assertFalse($response->success);
         $this->assertNotEmpty($response->msg);
         
-
-    }
-
-
-
-    public function log($data){
-        $logger = new Logger('my_logger');
-        // Now add some handlers
-        $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Level::Debug));
-        $logger->pushHandler(new FirePHPHandler());
-        $message = json_encode($data);
-        $logger->info($message);
 
     }
 
