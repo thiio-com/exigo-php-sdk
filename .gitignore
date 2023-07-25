@@ -52,3 +52,4 @@ Thumbs.db
 /vendor/
 
 .env.testing
+.phpunit.result.cache
