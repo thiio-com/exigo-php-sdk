@@ -1,0 +1,21 @@
+version: "3.4"
+services:
+  # PHP Main Backend Service
+  exigo:
+    container_name: exigo
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    privileged: true
+    tty: true
+    working_dir: /var/www
+    stop_grace_period: 1s
+    volumes:
+      - ./:/var/www:delegated
+      - vendor:/var/www/vendor:delegated
+    command: ["tail", "-f"]
+
+volumes:
+  vendor:
+    driver: local
