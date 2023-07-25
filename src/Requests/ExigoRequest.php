@@ -25,28 +25,7 @@ class ExigoRequest implements JsonSerializable
 
     public function convertAttributesToQueryParams(){
 
-
         return "?".http_build_query($this->toArray());
-
-        // $attributes = $this->toArray();
-        // $index = 0;
-        // $totalAttributes = count($attributes);
-        // $queryParams = "";
-        // foreach($attributes as $key => $value){
-        //     if( $index === 0 )
-        //         $queryParams .= "?";
-        //     $index++;
-        //     if( is_null($attributes[$key]) ) continue;
-        //     if( is_array($attributes[$key]) ){
-        //         $params = implode(',',$attributes[$key]);
-        //         $queryParams .= "{$key}=[{$params}]";
-        //     }else{
-        //         $queryParams .= "$key=$attributes[$key]";
-        //     }
-        //     if( $index < $totalAttributes )
-        //         $queryParams .= "&";
-        // }
-        // return $queryParams;
 
     }
 

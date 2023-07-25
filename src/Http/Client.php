@@ -108,7 +108,6 @@ class Client
         try {
             
             $client = $this->buildClient();
-
             
             $response = $client->request($verb, $url, $data);
             
@@ -116,7 +115,6 @@ class Client
             
 
         } catch (\Exception $e) {
-            
 
             return $this->handleErrorResponse($e);
 

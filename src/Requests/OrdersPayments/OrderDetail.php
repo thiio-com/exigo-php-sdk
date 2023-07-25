@@ -31,11 +31,6 @@ class OrderDetail extends ExigoRequest
     public $advancedAutoOptions;
     public $orderLine;
 
-    public function __construct()
-    {
-        
-    }
-
 
     /**
      * Get the value of itemCode

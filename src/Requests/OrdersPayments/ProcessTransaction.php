@@ -8,8 +8,11 @@ use Thiio\Exigo\Requests\Transaction;
 class ProcessTransaction extends ExigoRequest
 {
 
+    const ENDPOINT = self::API_VERSION."/transaction";
+
     public $transactionRequests = [];
 
+    
     public function addTransaction( Transaction $transaction ){
 
         $this->transactionRequests[] = $transaction;

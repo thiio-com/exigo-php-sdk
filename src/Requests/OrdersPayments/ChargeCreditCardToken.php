@@ -52,7 +52,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setCreditCardToken($creditCardToken)
+    public function setCreditCardToken(string $creditCardToken)
     {
         $this->creditCardToken = $creditCardToken;
 
@@ -72,7 +72,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingName($billingName)
+    public function setBillingName(string $billingName)
     {
         $this->billingName = $billingName;
 
@@ -92,7 +92,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingAddress($billingAddress)
+    public function setBillingAddress(string $billingAddress)
     {
         $this->billingAddress = $billingAddress;
 
@@ -112,7 +112,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingAddress2($billingAddress2)
+    public function setBillingAddress2(string $billingAddress2)
     {
         $this->billingAddress2 = $billingAddress2;
 
@@ -132,7 +132,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingCity($billingCity)
+    public function setBillingCity(string $billingCity)
     {
         $this->billingCity = $billingCity;
 
@@ -152,7 +152,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingState($billingState)
+    public function setBillingState(string $billingState)
     {
         $this->billingState = $billingState;
 
@@ -172,7 +172,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingZip($billingZip)
+    public function setBillingZip(string $billingZip)
     {
         $this->billingZip = $billingZip;
 
@@ -192,7 +192,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setBillingCountry($billingCountry)
+    public function setBillingCountry(string $billingCountry)
     {
         $this->billingCountry = $billingCountry;
 
@@ -212,7 +212,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setCvcCode($cvcCode)
+    public function setCvcCode(string $cvcCode)
     {
         $this->cvcCode = $cvcCode;
 
@@ -232,7 +232,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setIssueNumber($issueNumber)
+    public function setIssueNumber(string $issueNumber)
     {
         $this->issueNumber = $issueNumber;
 
@@ -252,7 +252,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setCreditCardType($creditCardType)
+    public function setCreditCardType(string $creditCardType)
     {
         $this->creditCardType = $creditCardType;
 
@@ -272,7 +272,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setExpirationMonth($expirationMonth)
+    public function setExpirationMonth(string $expirationMonth)
     {
         $this->expirationMonth = $expirationMonth;
 
@@ -292,7 +292,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setExpirationYear($expirationYear)
+    public function setExpirationYear(string $expirationYear)
     {
         $this->expirationYear = $expirationYear;
 
@@ -312,7 +312,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOrderID($orderID)
+    public function setOrderID(string $orderID)
     {
         $this->orderID = $orderID;
 
@@ -332,7 +332,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setMaxAmount($maxAmount)
+    public function setMaxAmount(float $maxAmount)
     {
         $this->maxAmount = $maxAmount;
 
@@ -352,7 +352,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setMerchantWarehouseIDOverride($merchantWarehouseIDOverride)
+    public function setMerchantWarehouseIDOverride(int $merchantWarehouseIDOverride)
     {
         $this->merchantWarehouseIDOverride = $merchantWarehouseIDOverride;
 
@@ -372,7 +372,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setClientIPAddress($clientIPAddress)
+    public function setClientIPAddress(string $clientIPAddress)
     {
         $this->clientIPAddress = $clientIPAddress;
 
@@ -392,7 +392,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData1($otherData1)
+    public function setOtherData1(string $otherData1)
     {
         $this->otherData1 = $otherData1;
 
@@ -412,7 +412,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData2($otherData2)
+    public function setOtherData2(string $otherData2)
     {
         $this->otherData2 = $otherData2;
 
@@ -432,7 +432,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData3($otherData3)
+    public function setOtherData3(string $otherData3)
     {
         $this->otherData3 = $otherData3;
 
@@ -452,7 +452,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData4($otherData4)
+    public function setOtherData4(string $otherData4)
     {
         $this->otherData4 = $otherData4;
 
@@ -472,7 +472,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData5($otherData5)
+    public function setOtherData5(string $otherData5)
     {
         $this->otherData5 = $otherData5;
 
@@ -492,7 +492,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData6($otherData6)
+    public function setOtherData6(string $otherData6)
     {
         $this->otherData6 = $otherData6;
 
@@ -512,7 +512,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData7($otherData7)
+    public function setOtherData7(string $otherData7)
     {
         $this->otherData7 = $otherData7;
 
@@ -532,7 +532,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData8($otherData8)
+    public function setOtherData8(string $otherData8)
     {
         $this->otherData8 = $otherData8;
 
@@ -552,7 +552,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData9($otherData9)
+    public function setOtherData9(string $otherData9)
     {
         $this->otherData9 = $otherData9;
 
@@ -572,7 +572,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOtherData10($otherData10)
+    public function setOtherData10(string $otherData10)
     {
         $this->otherData10 = $otherData10;
 
@@ -592,7 +592,7 @@ class ChargeCreditCardToken extends ExigoRequest
      *
      * @return  self
      */ 
-    public function setOrderKey($orderKey)
+    public function setOrderKey(string $orderKey)
     {
         $this->orderKey = $orderKey;
 

@@ -44,13 +44,6 @@ class CalculateOrder extends ExigoRequest {
     protected $orderType;
     protected $orderSubStatusTy;
 
-
-    public function __construct()
-    {
-        
-    }
-
-
     /**
      * Get the value of currencyCode
      */ 

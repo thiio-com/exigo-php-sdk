@@ -42,12 +42,6 @@ class GetOrders extends ExigoRequest
     public $batchID;
     public $orderTys;
 
-    public function  __construct()
-    {
-        
-    }
-
-
     /**
      * Get the value of customerID
      */ 

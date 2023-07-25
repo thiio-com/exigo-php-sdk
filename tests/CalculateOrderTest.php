@@ -8,17 +8,7 @@ use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 #vendor/bin/phpunit tests/CalculateOrderTest.php
 class CalculateOrderTest extends TestCase
 {
-
-
-    const USER      = "dev_api_thiio";
-    const PASSWORD  = "&Dh92^KUruF!Zq";
-    const COMPANY   = "Yoli";
-
-
-   //  const USER      = "prod_api_thiio";
-   //  const PASSWORD  = "84Ny#&I4IC77";
-   //  const COMPANY   = "Yoli";
-
+    
 
      /**
      * @test
@@ -188,7 +178,7 @@ class CalculateOrderTest extends TestCase
       //   $calculateOrderRequest->setCounty("");
         $calculateOrderRequest->setDetails([$orderDetail->toArray(), $orderDetail2->toArray()]);
         
-        $exigoClient           = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient           = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
 
         $response = $exigoClient->calculateOrder($calculateOrderRequest);
         

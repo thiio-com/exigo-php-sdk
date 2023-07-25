@@ -19,9 +19,6 @@ use Monolog\Handler\FirePHPHandler;
 class GetItemsTest extends TestCase
 {
 
-    const USER      = "dev_api_thiio";
-    const PASSWORD  = "&Dh92^KUruF!Zq";
-    const COMPANY   = "Yoli";
 
      /**
      * @test
@@ -129,7 +126,7 @@ class GetItemsTest extends TestCase
     */
     public function it_should_get_items_from_exigo(){
         
-        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
         $getItemsReq = new GetItems();
         $getItemsReq->setWarehouseID(1);
         $getItemsReq->setItemCodes(["10010-US", "10113-US", "_100_TEST", "1000010101", "10005-US", "TRUBOX-US"]);
@@ -149,7 +146,7 @@ class GetItemsTest extends TestCase
     */
     public function it_should_get_a_failed_response(){
         
-        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
         $getItemsReq = new GetItems();
         $getItemsReq->setWarehouseID(1);
         $response = $exigoClient->getItems($getItemsReq);

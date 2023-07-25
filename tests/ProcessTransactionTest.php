@@ -2,7 +2,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-
+use Thiio\Exigo\Http\ExigoApi;
 use Thiio\Exigo\Requests\Transaction;
 use Thiio\Exigo\Requests\OrdersPayments\ProcessTransaction;
 
@@ -29,10 +29,10 @@ class ProcessTransactionTest extends TestCase
            "lastName"       => $faker->lastName(),
            "customerType"   => 1,
            "customerStatus" => 1,
-           "mainCity"       => $faker->city(),
-           "mainState"      => $faker->state(),
-           "mainZip"        => $faker->postcode(),
-           "mainCountry"    => $faker->country(),
+           "mainCity"       => "Austin",
+           "mainState"      => "TX",
+           "mainZip"        => "78758",
+           "mainCountry"    => "US",
         ];
     }
 
@@ -48,9 +48,9 @@ class ProcessTransactionTest extends TestCase
             "priceType"    => 1,
             "firstName"    => $faker->firstName(),
             "lastName"     => $faker->lastName(),
-            "address1"     => $faker->streetAddress(),
-            "state"        => $faker->state(),
-            "country"      => $faker->country(),
+            "address1"     => "11801 Stonehollow drive",
+            "state"        => "TX",
+            "country"      => "US",
             "details"      => [
                 [
                     "itemCode" => "DY-BN-50215-US",
@@ -67,7 +67,8 @@ class ProcessTransactionTest extends TestCase
     private function buildChargeCreditCardTokenBlueprint(){
 
         return [
-            "creditCardToken" => "41EDX4872QC71111",
+            //"creditCardToken" => "47X4747X0FAD84747",
+            "creditCardToken" => "43X47694XSJZW2708",
             "expirationMonth" => 3,
             "expirationYear"  => 2025
         ];
@@ -300,6 +301,44 @@ class ProcessTransactionTest extends TestCase
                     ]
                 ]
             ), json_encode($processTransaction->toArray()));
+
+    }
+
+
+    /**
+     * @test
+     */
+    public function it_should_process_a_transaction(){
+
+        $customer = $this->buildCustomerBlueprint();
+        $customerTransaction = new Transaction();
+        $customerTransaction->setName("CreateCustomerRequest");
+        foreach($customer as $key => $value){
+            $customerTransaction->addParameter($key,$value);
+        }
+
+        $order    = $this->buildOrderBlueprint();
+        $orderTransaction = new Transaction();
+        $orderTransaction->setName("CreateOrderRequest");
+        foreach($order as $key => $value){
+            $orderTransaction->addParameter($key,$value);
+        }
+
+        $charge   = $this->buildChargeCreditCardTokenBlueprint();
+        $chargeTransaction = new Transaction();
+        $chargeTransaction->setName("ChargeCreditCardTokenRequest");
+        foreach($charge as $key => $value){
+            $chargeTransaction->addParameter($key,$value);
+        }
+
+        $processTransaction = new ProcessTransaction();
+        $processTransaction->addTransactions([$customerTransaction,$orderTransaction, $chargeTransaction]);
+
+        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        
+        $response = $client->processTransaction($processTransaction);
+
+        $this->assertFalse($response->success);
 
     }
 

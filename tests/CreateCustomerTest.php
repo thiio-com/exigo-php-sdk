@@ -9,9 +9,6 @@ use Thiio\Exigo\Http\ExigoApi;
 class CreateCustomerTest extends TestCase
 {
 
-    const USER      = "dev_api_thiio";
-    const PASSWORD  = "&Dh92^KUruF!Zq";
-    const COMPANY   = "Yoli";
 
     /**
      * @test
@@ -439,7 +436,7 @@ class CreateCustomerTest extends TestCase
         $createCustomerRequest->setCustomerType(1);
         $createCustomerRequest->setDate1((new DateTime)->format("Y-m-d H:i:s"));
         
-        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
         
         $response = $exigoClient->createCustomer($createCustomerRequest);
 

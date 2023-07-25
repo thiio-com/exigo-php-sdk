@@ -10,10 +10,8 @@ use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
 #vendor/bin/phpunit tests/GetOrdersTest.php
 class GetOrdersTest extends TestCase
 {
-
-    const USER      = "dev_api_thiio";
-    const PASSWORD  = "&Dh92^KUruF!Zq";
-    const COMPANY   = "Yoli";
+    
+    
     
     private function createCustomer(){
         $faker = Faker\Factory::create();
@@ -25,7 +23,7 @@ class GetOrdersTest extends TestCase
         $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
         $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
         
-        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
         
         $response = $exigoClient->createCustomer($createCustomerRequest);
 
@@ -72,7 +70,7 @@ class GetOrdersTest extends TestCase
         $createOrderRequest->setZip("78758");
         $createOrderRequest->setPhone($faker->phoneNumber());
 
-        $client = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY);
+        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
 
         $response = $client->createOrder($createOrderRequest);
 
@@ -216,7 +214,7 @@ class GetOrdersTest extends TestCase
         $getOrdersRequest = new GetOrders();
         $getOrdersRequest->setOrderID($order->orderID);
 
-        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
 
         $response = $exigoClient->getOrders($getOrdersRequest);
 
@@ -239,7 +237,7 @@ class GetOrdersTest extends TestCase
         $getOrdersRequest = new GetOrders();
         $getOrdersRequest->setOrderIDs([$orderA->orderID,$orderB->orderID,$orderC->orderID, $orderD->orderID]);
 
-        $exigoClient = new ExigoApi(self::USER,self::PASSWORD,self::COMPANY,'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
 
         $response = $exigoClient->getOrders($getOrdersRequest);
 

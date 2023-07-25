@@ -8,6 +8,7 @@ use Thiio\Exigo\Requests\Customers\CreateCustomer;
 use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
 use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
 use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
+use Thiio\Exigo\Requests\OrdersPayments\ProcessTransaction;
 
 class ExigoApi extends Client
 {
@@ -95,8 +96,16 @@ class ExigoApi extends Client
     }
 
 
+    /**
+     * ProcessTransaction
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=CreateCustomer
+     */
+    public function processTransaction( ProcessTransaction $request, string $method = "POST", array $data = [] ){
+
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
+
+    }
+
+
    
-
-
-
 }
