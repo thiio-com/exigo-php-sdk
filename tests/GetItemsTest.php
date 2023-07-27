@@ -127,7 +127,6 @@ class GetItemsTest extends TestCase
         $response = $exigoClient->getItems($getItemsReq);
         
         $this->assertTrue($response->success);
-        echo json_encode($response->data->items);
         $this->assertIsArray($response->data->items);
         
 

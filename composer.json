@@ -1,5 +1,5 @@
 {
-    "name": "thiio/exigo-sdk",
+    "name": "thiio/exigo-php-sdk",
     "description": "This is an early version for an SDK that will consume Exigo's API",
     "type": "library",
     "require": {
