@@ -9,7 +9,7 @@ The Exigo API SDK for PHP is a PHP package created by the Thiio Team. It is desi
 Install the Exigo API SDK using Composer:
 
 ```bash
-composer require thiio/exigo-api-sdk
+composer require thiio/exigo-php-sdk
 ```
 
 To execute all tests located in the "tests" folder, use the following command in the terminal or command prompt:
