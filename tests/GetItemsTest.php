@@ -121,12 +121,13 @@ class GetItemsTest extends TestCase
         $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
         $getItemsReq = new GetItems();
         $getItemsReq->setWarehouseID(1);
-        $getItemsReq->setItemCodes(["10010-US", "10113-US", "_100_TEST", "1000010101", "10005-US", "TRUBOX-US"]);
+        $getItemsReq->setItemCodes(["TK-ENG-28-US","SUPTBR-BT-US","LNGRNS-BG-US"]);
         $getItemsReq->setCurrencyCode("usd");
         $getItemsReq->setPriceType(1);
         $response = $exigoClient->getItems($getItemsReq);
         
         $this->assertTrue($response->success);
+        echo json_encode($response->data->items);
         $this->assertIsArray($response->data->items);
         
 

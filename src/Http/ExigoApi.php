@@ -5,6 +5,7 @@ namespace Thiio\Exigo\Http;
 use Thiio\Exigo\Requests\Items\GetItems;
 use Thiio\Exigo\Requests\Customers\GetCustomers;
 use Thiio\Exigo\Requests\Customers\CreateCustomer;
+use Thiio\Exigo\Requests\Items\GetWarehouses;
 use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
 use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
 use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
@@ -84,7 +85,6 @@ class ExigoApi extends Client
      */
     public function getItems( GetItems $request, string $method="GET", $extraParams = [] ){
 
-        //$params = array_merge($extraParams, $request->toArray());
 
         $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
         
@@ -99,7 +99,20 @@ class ExigoApi extends Client
      */
     public function getOrders( GetOrders $request, string $method="GET", $extraParams = [] ){
 
-        //$params = array_merge($extraParams, $request->toArray());
+
+        $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
+        
+        return $this->makeRequest($method, $fullUrl);
+
+    }
+
+
+     /**
+     * GetWarehouses
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=GetWarehouses
+     */
+    public function getWarehouses( GetWarehouses $request, string $method="GET", $extraParams = [] ){
+
 
         $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
         
