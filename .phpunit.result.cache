@@ -1,1 +1,0 @@
-{"version":1,"defects":[],"times":{"GetWarehousesTest::it_should_return_a_get_warehouses_instance":0.003,"GetWarehousesTest::it_should_fill_a_get_warehouses_request":0.007,"GetWarehousesTest::it_should_fetch_warehouses_from_exigo":0.639}}
