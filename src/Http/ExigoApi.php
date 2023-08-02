@@ -5,6 +5,7 @@ namespace Thiio\Exigo\Http;
 use Thiio\Exigo\Requests\Items\GetItems;
 use Thiio\Exigo\Requests\Customers\GetCustomers;
 use Thiio\Exigo\Requests\Customers\CreateCustomer;
+use Thiio\Exigo\Requests\Customers\SetAccountCreditCardToken;
 use Thiio\Exigo\Requests\Items\GetWarehouses;
 use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
 use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
@@ -126,6 +127,17 @@ class ExigoApi extends Client
      * https://api.exigo.com/3.0/ExigoApi.asmx?op=CreateCustomer
      */
     public function processTransaction( ProcessTransaction $request, string $method = "POST", array $data = [] ){
+
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
+
+    }
+
+
+    /**
+     * SetAccountCreditCardToken
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=SetAccountCreditCardToken
+     */
+    public function setAccountCreditCardToken( SetAccountCreditCardToken $request, string $method = "PUT", array $data = [] ){
 
         return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 

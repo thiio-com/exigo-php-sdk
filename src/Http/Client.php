@@ -117,6 +117,7 @@ class Client
         $apiResponse->success = false;
         $apiResponse->msg     = "";
         $apiResponse->error   = null;
+        $apiResponse->code    = $response->getStatusCode();
         
         if( $response->getStatusCode() !== 200 ){
             
@@ -138,6 +139,7 @@ class Client
         $apiResponse->success   = false;
         $apiResponse->msg       = $e->getMessage();
         $apiResponse->exception = $e->getTrace();
+        $apiResponse->code      = 500;
         return $apiResponse;
 
     }

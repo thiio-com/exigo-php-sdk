@@ -167,6 +167,7 @@ class CalculateOrderTest extends TestCase
         $calculateOrderRequest->setCurrencyCode("usd");
         $calculateOrderRequest->setWarehouseID(1);
         $calculateOrderRequest->setShipMethodID(6);//UPS Next Day	
+        //shippingAmountOverride with the price fixed
         $calculateOrderRequest->setPriceType(1);
       //   $calculateOrderRequest->setAddress1("11801 stonehollow drive");
       //   $calculateOrderRequest->setAddress2("");
