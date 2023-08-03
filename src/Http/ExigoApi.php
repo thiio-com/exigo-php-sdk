@@ -18,9 +18,9 @@ class ExigoApi extends Client
     const DEBUG = false;
 
 
-    public function __construct(string $login, string $password, string $company, string $env = "PRODUCTION")
+    public function __construct(string $login, string $password, string $company, string $mainApiUrl)
     {
-        parent::__construct($login, $password, $company, $env);
+        parent::__construct($login, $password, $company, $mainApiUrl);
     }
 
     

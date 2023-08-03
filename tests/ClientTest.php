@@ -9,10 +9,6 @@ use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 #vendor/bin/phpunit tests/ClientTest.php
 class ClientTest extends TestCase{
 
-
-    
-
-
     /**
      * @test
      */
@@ -105,6 +101,8 @@ class ClientTest extends TestCase{
     //     $this->assertEquals($result, $url);
 
     // }
+
+
 
     /**
      * @test

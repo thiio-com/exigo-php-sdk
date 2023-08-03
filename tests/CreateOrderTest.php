@@ -238,7 +238,7 @@ class CreateOrderTest extends TestCase
         //Adding order details
         $orderDetail = new OrderDetail();
         $orderDetail->setItemCode("DY-BN-50215-US");
-        $orderDetail->setQuantity(2);
+        $orderDetail->setQuantity(1);
         
         $orderDetail2 = new OrderDetail();
         $orderDetail2->setItemCode("DY-BN-50211-US");

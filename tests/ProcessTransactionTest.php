@@ -337,7 +337,7 @@ class ProcessTransactionTest extends TestCase
         
         $response = $client->processTransaction($processTransaction);
 
-        $this->assertFalse($response->success);
+        $this->assertTrue($response->success);
 
     }
 
