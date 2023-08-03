@@ -67,10 +67,9 @@ class ProcessTransactionTest extends TestCase
     private function buildChargeCreditCardTokenBlueprint(){
 
         return [
-            //"creditCardToken" => "47X4747X0FAD84747",
-            "creditCardToken" => "43X47694XSJZW2708",
+            "creditCardToken" => $_ENV["CARD_TOKEN_REQUEST"],
             "expirationMonth" => 3,
-            "expirationYear"  => 2025
+            "expirationYear"  => 2035
         ];
 
     }

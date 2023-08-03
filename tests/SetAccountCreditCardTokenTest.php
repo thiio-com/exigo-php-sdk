@@ -116,17 +116,17 @@ class SetAccountCreditCardTokenTest extends TestCase
         $customerResponse = $exigoClient->createCustomer($createCustomerRequest);
 
         $setAccountCreditCardTokenRequest = new SetAccountCreditCardToken();
-        $setAccountCreditCardTokenRequest->setCustomerID($customerResponse->data->customerID);
-        $setAccountCreditCardTokenRequest->setCreditCardToken($_ENV["CARD_TOKEN_REQUEST"]);
-        $setAccountCreditCardTokenRequest->setExpirationMonth(3);
-        $setAccountCreditCardTokenRequest->setExpirationYear(2030);
+        $setAccountCreditCardTokenRequest->setCustomerID($customerResponse->data->customerID);//required
+        $setAccountCreditCardTokenRequest->setCreditCardToken($_ENV["CARD_TOKEN_REQUEST"]);//required
+        $setAccountCreditCardTokenRequest->setExpirationMonth(3);//required
+        $setAccountCreditCardTokenRequest->setExpirationYear(2030);//required
         $setAccountCreditCardTokenRequest->setFirstSix("424242");
         $setAccountCreditCardTokenRequest->setLastFour("4242");
-        $setAccountCreditCardTokenRequest->setBillingCountry("US");
-        $setAccountCreditCardTokenRequest->setBillingState("TX");
+        $setAccountCreditCardTokenRequest->setBillingCountry("US");//required
+        $setAccountCreditCardTokenRequest->setBillingState("TX");//required
 
         $response = $exigoClient->setAccountCreditCardToken($setAccountCreditCardTokenRequest);
-
+        
         $this->assertTrue($response->success);
 
     }

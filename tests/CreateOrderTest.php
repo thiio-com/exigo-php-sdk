@@ -206,6 +206,7 @@ class CreateOrderTest extends TestCase
 
     }
 
+    
     private function createCustomer(){
         $faker = Faker\Factory::create();
         $createCustomerRequest = new CreateCustomer();
@@ -259,7 +260,9 @@ class CreateOrderTest extends TestCase
         $createOrderRequest->setCustomerID($customer->customerID);
         $createOrderRequest->setFirstName($faker->firstName());
         $createOrderRequest->setLastName($faker->lastName());
-        $createOrderRequest->setEmail("fernando+{$id}@thiio.com");
+        $prefix = uniqid();
+        $email = $_ENV["PREFIX_EMAIL"].$prefix."@".$_ENV["EMAIL_DOMAIN"];
+        $createOrderRequest->setEmail($email);
 
         //Address Data
         $createOrderRequest->setAddress1("11801 stonehollow drive");

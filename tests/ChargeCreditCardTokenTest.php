@@ -23,7 +23,7 @@ class ChargeCreditCardTokenTest extends TestCase
     private function getChargeCreditCardBlueprint(){
         $faker = Faker\Factory::create();
         return [
-            "creditCardToken" => "47X4747X0FAD84747",
+            "creditCardToken" => $_ENV["CARD_TOKEN_REQUEST"],
             "billingName" => $faker->name(),
             "billingAddress" => $faker->streetAddress(),
             "billingAddress2" => "",
