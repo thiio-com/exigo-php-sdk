@@ -20,6 +20,7 @@ class Client
     protected $company;
     protected $env;
     protected $headers;
+    protected $mainApiUrl;
     
     const PRODUCTION = "PRODUCTION";
     const SANDBOX    = "SANDBOX";
@@ -29,19 +30,17 @@ class Client
     protected $client;
 
 
-    protected function __construct(string $login, string $password, string $company, string $env = "PRODUCTION"){
-        if( ! $this->validEnv($env) ) throw new Exception("$env is invalid");
-        $this->login    = $login;
-        $this->password = $password;
-        $this->company  = $company;
-        $this->env      = $env;
+    protected function __construct(
+        string $login,
+        string $password,
+        string $company,
+        string $mainApiUrl,
+    ){
+        $this->login        = $login;
+        $this->password     = $password;
+        $this->company      = $company;
+        $this->mainApiUrl   = $mainApiUrl;
         $this->setDefaultHeaders();
-        
-    }
-
-    private function validEnv( string $env ){
-        if( ! in_array($env, [self::PRODUCTION, self::SANDBOX]) ) return false;
-        return true;
     }
 
     public function setCompany(string $company){
@@ -54,16 +53,17 @@ class Client
 
     private function buildClient(){
         return new GuzzleHttpClient([
-            'base_uri' => $this->resolveMainUrl(),
+            'base_uri' => $this->mainApiUrl,
             'timeout'  => self::TIMEOUT,
             'headers'  => $this->getHeaders()
         ]);
     }
 
-    private function resolveMainUrl(){
-        $company = strtolower($this->company);
-        return "https://{$company}-api.exigo.com";
-    }
+    /**DEPRECATED: We're now receiving the url as parameter**/
+    // private function resolveMainUrl(){
+    //     $company = strtolower($this->company);
+    //     return "https://{$company}-api.exigo.com";
+    // }
 
     private function setDefaultHeaders(){
         $encodedToken  = $this->fetchToken();

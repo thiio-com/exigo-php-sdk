@@ -436,7 +436,7 @@ class CreateCustomerTest extends TestCase
         $createCustomerRequest->setCustomerType(1);
         $createCustomerRequest->setDate1((new DateTime)->format("Y-m-d H:i:s"));
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $exigoClient->createCustomer($createCustomerRequest);
 

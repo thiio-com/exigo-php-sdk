@@ -217,7 +217,7 @@ class CreateOrderTest extends TestCase
         $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
         $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $exigoClient->createCustomer($createCustomerRequest);
 
@@ -272,7 +272,7 @@ class CreateOrderTest extends TestCase
         $createOrderRequest->setPhone($faker->phoneNumber());
         
 
-        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
 
         $response = $client->createOrder($createOrderRequest);
 

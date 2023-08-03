@@ -179,7 +179,7 @@ class CalculateOrderTest extends TestCase
       //   $calculateOrderRequest->setCounty("");
         $calculateOrderRequest->setDetails([$orderDetail->toArray(), $orderDetail2->toArray()]);
         
-        $exigoClient           = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient           = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
 
         $response = $exigoClient->calculateOrder($calculateOrderRequest);
         

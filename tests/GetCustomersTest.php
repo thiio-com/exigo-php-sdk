@@ -31,7 +31,7 @@ class GetCustomersTest extends TestCase
         $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
         $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $exigoClient->createCustomer($createCustomerRequest);
 
@@ -48,7 +48,7 @@ class GetCustomersTest extends TestCase
         $getCustomersRequest = new GetCustomers();
         $getCustomersRequest->setCustomerID($customer->customerID);
 
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $exigoClient->getCustomers($getCustomersRequest);
         
@@ -72,7 +72,7 @@ class GetCustomersTest extends TestCase
         $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
         $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $exigoClient->createCustomer($createCustomerRequest);
         
@@ -80,7 +80,7 @@ class GetCustomersTest extends TestCase
         
         $getCustomersRequest->setEmail($createCustomerRequest->getEmail());
 
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $exigoClient->getCustomers($getCustomersRequest);
         

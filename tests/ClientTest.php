@@ -18,7 +18,7 @@ class ClientTest extends TestCase{
      */
     public function it_should_build_a_client_instance(): void{
 
-        $client = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT']);
 
         $this->assertInstanceOf(ExigoClient::class, $client);
 
@@ -27,84 +27,84 @@ class ClientTest extends TestCase{
     /**
      * @test
      */
-    public function it_should_throw_due_invalid_env(): void{
+    // public function it_should_throw_due_invalid_env(): void{
 
-        $env = "demo";
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage("$env is invalid");
+    //     $env = "demo";
+    //     $this->expectException(Exception::class);
+    //     $this->expectExceptionMessage("$env is invalid");
         
-        $client = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$env);
+    //     $client = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT'], $env);
 
-    }
+    // }
 
     /**
      * @test
      */
-    public function it_should_throw_due_invalid_env_param(): void{
+    // public function it_should_throw_due_invalid_env_param(): void{
 
-        $env = "demo";
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage("$env is invalid");
+    //     $env = "demo";
+    //     $this->expectException(Exception::class);
+    //     $this->expectExceptionMessage("$env is invalid");
         
-        $client = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$env);
-        $reflection = new ReflectionClass(ExigoClient::class);
-        $method = $reflection->getMethod('validEnv');
+    //     $client = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT'], $env);
+    //     $reflection = new ReflectionClass(ExigoClient::class);
+    //     $method = $reflection->getMethod('validEnv');
 
-        $result = $method->invoke($client, $env);
+    //     $result = $method->invoke($client, $env);
 
-    }
+    // }
 
     /**
      * @test
      */
-    public function it_should_return_true_with_sandbox_env(): void{
+    // public function it_should_return_true_with_sandbox_env(): void{
         
-        $env = 'SANDBOX';
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $env);
-        $reflection = new ReflectionClass(ExigoClient::class);
-        $method     = $reflection->getMethod('validEnv');
+    //     $env = 'SANDBOX';
+    //     $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT'], $env);
+    //     $reflection = new ReflectionClass(ExigoClient::class);
+    //     $method     = $reflection->getMethod('validEnv');
 
-        $result = $method->invoke($client, $env);
+    //     $result = $method->invoke($client, $env);
 
-        $this->assertTrue($result);
+    //     $this->assertTrue($result);
 
-    }
+    // }
 
     /**
      * @test
      */
-    public function it_should_return_true_with_production_env(): void{
+    // public function it_should_return_true_with_production_env(): void{
         
-        $env = 'PRODUCTION';
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $env);
-        $reflection = new ReflectionClass(ExigoClient::class);
-        $method     = $reflection->getMethod('validEnv');
+    //     $env = 'PRODUCTION';
+    //     $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT'], $env);
+    //     $reflection = new ReflectionClass(ExigoClient::class);
+    //     $method     = $reflection->getMethod('validEnv');
 
-        $result = $method->invoke($client, $env);
+    //     $result = $method->invoke($client, $env);
 
-        $this->assertTrue($result);
+    //     $this->assertTrue($result);
 
-    }
+    // }
 
     
     /**
      * @test
      */
-    public function it_should_resolve_the_correct_main_url(): void{
+    // public function it_should_resolve_the_correct_main_url(): void{
         
-        $company = strtolower($_ENV["TEST_COMPANY"]);
+    //     $company = strtolower($_ENV["TEST_COMPANY"]);
         
-        $url = "https://{$company}-api.exigo.com";
+    //     $url = "https://{$company}-api.exigo.com";
 
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
-        $reflection = new ReflectionClass(ExigoClient::class);
-        $method     = $reflection->getMethod('resolveMainUrl');
+    //     $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+    //     $reflection = new ReflectionClass(ExigoClient::class);
+    //     $method     = $reflection->getMethod('resolveMainUrl');
 
-        $result = $method->invoke($client);
+    //     $result = $method->invoke($client);
 
-        $this->assertEquals($result, $url);
+    //     $this->assertEquals($result, $url);
 
-    }
+    // }
 
     /**
      * @test
@@ -112,7 +112,7 @@ class ClientTest extends TestCase{
     public function it_should_set_the_company_value(): void{
         
         $company = "mydemocompany";
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT']);
         $client->setCompany($company);
 
         $this->assertEquals($company, $client->getCompany());
@@ -126,7 +126,7 @@ class ClientTest extends TestCase{
         
         $token = base64_encode($_ENV["TEST_USER"]."@".$_ENV["TEST_COMPANY"].":".$_ENV["TEST_PASSWORD"]);
         
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT']);
         $reflection = new ReflectionClass(ExigoClient::class);
         $method     = $reflection->getMethod('fetchToken');
 
@@ -144,7 +144,7 @@ class ClientTest extends TestCase{
         
         $token = base64_encode($_ENV['TEST_USER']."@demo:".$_ENV['TEST_PASSWORD']);
         
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         $reflection = new ReflectionClass(ExigoClient::class);
         $method     = $reflection->getMethod('fetchToken');
 
@@ -159,7 +159,7 @@ class ClientTest extends TestCase{
      * @test
      */
     public function it_should_match_headers(): void{
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT']);
         $reflection = new ReflectionClass(ExigoClient::class);
         $method     = $reflection->getMethod('fetchToken');
         $token = $method->invoke($client);
@@ -179,7 +179,7 @@ class ClientTest extends TestCase{
      */
     public function it_should_overwrite_headers(): void{
         
-        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client     = new ExigoClient($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"], $_ENV['API_URL_ENDPOINT']);
         $headers = [
             "header1" => "header1",
             "header2" => "header2",

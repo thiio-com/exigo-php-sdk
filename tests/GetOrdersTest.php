@@ -23,7 +23,7 @@ class GetOrdersTest extends TestCase
         $createCustomerRequest->setDate1((new DateTime)->format('Y-m-d\TH:i:sP'));
         $createCustomerRequest->setBirthDate((new DateTime)->format('Y-m-d\TH:i:sP'));
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $exigoClient->createCustomer($createCustomerRequest);
 
@@ -72,7 +72,7 @@ class GetOrdersTest extends TestCase
         $createOrderRequest->setZip("78758");
         $createOrderRequest->setPhone($faker->phoneNumber());
 
-        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"]);
+        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
 
         $response = $client->createOrder($createOrderRequest);
 
@@ -216,7 +216,7 @@ class GetOrdersTest extends TestCase
         $getOrdersRequest = new GetOrders();
         $getOrdersRequest->setOrderID($order->orderID);
 
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
 
         $response = $exigoClient->getOrders($getOrdersRequest);
 
@@ -239,7 +239,7 @@ class GetOrdersTest extends TestCase
         $getOrdersRequest = new GetOrders();
         $getOrdersRequest->setOrderIDs([$orderA->orderID,$orderB->orderID,$orderC->orderID, $orderD->orderID]);
 
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
 
         $response = $exigoClient->getOrders($getOrdersRequest);
 

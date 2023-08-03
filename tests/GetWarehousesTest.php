@@ -73,7 +73,7 @@ class GetWarehousesTest extends TestCase
         
         $getWarehousesRequest = new GetWarehouses();
         
-        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
 
         $response = $client->getWarehouses($getWarehousesRequest);
         

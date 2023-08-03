@@ -118,7 +118,7 @@ class GetItemsTest extends TestCase
     */
     public function it_should_get_items_from_exigo(){
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         $getItemsReq = new GetItems();
         $getItemsReq->setWarehouseID(1);
         $getItemsReq->setItemCodes(["TK-ENG-28-US","SUPTBR-BT-US","LNGRNS-BG-US"]);
@@ -138,7 +138,7 @@ class GetItemsTest extends TestCase
     */
     public function it_should_get_a_failed_response(){
         
-        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],'SANDBOX');
+        $exigoClient = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         $getItemsReq = new GetItems();
         $getItemsReq->setWarehouseID(1);
         $response = $exigoClient->getItems($getItemsReq);
