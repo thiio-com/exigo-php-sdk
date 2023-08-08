@@ -1094,7 +1094,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField1(string $field1)
+    public function setField1($field1)
     {
         $this->field1 = $field1;
 
@@ -1114,7 +1114,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField2(string $field2)
+    public function setField2($field2)
     {
         $this->field2 = $field2;
 
@@ -1134,7 +1134,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField3(string $field3)
+    public function setField3($field3)
     {
         $this->field3 = $field3;
 
@@ -1154,7 +1154,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField4(string $field4)
+    public function setField4($field4)
     {
         $this->field4 = $field4;
 
@@ -1174,7 +1174,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField5(string $field5)
+    public function setField5($field5)
     {
         $this->field5 = $field5;
 
@@ -1194,7 +1194,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField6(string $field6)
+    public function setField6($field6)
     {
         $this->field6 = $field6;
 
@@ -1214,7 +1214,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField7(string $field7)
+    public function setField7($field7)
     {
         $this->field7 = $field7;
 
@@ -1234,7 +1234,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField8(string $field8)
+    public function setField8($field8)
     {
         $this->field8 = $field8;
 
@@ -1254,7 +1254,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField9(string $field9)
+    public function setField9($field9)
     {
         $this->field9 = $field9;
 
@@ -1274,7 +1274,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField10(string $field10)
+    public function setField10($field10)
     {
         $this->field10 = $field10;
 
@@ -1294,7 +1294,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField11(string $field11)
+    public function setField11($field11)
     {
         $this->field11 = $field11;
 
@@ -1314,7 +1314,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField12(string $field12)
+    public function setField12($field12)
     {
         $this->field12 = $field12;
 
@@ -1334,7 +1334,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField13(string $field13)
+    public function setField13($field13)
     {
         $this->field13 = $field13;
 
@@ -1354,7 +1354,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField14(string $field14)
+    public function setField14($field14)
     {
         $this->field14 = $field14;
 
@@ -1374,7 +1374,7 @@ class CreateCustomer extends ExigoRequest{
      *
      * @return  self
      */ 
-    public function setField15(string $field15)
+    public function setField15($field15)
     {
         $this->field15 = $field15;
 

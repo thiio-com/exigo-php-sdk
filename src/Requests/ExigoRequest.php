@@ -19,7 +19,7 @@ class ExigoRequest implements JsonSerializable
     
     public function toArray(){
         
-        return array_filter(json_decode(json_encode($this), true));
+        return array_filter(json_decode(json_encode($this), true),fn($value) => ! is_null($value));
 
     }
 

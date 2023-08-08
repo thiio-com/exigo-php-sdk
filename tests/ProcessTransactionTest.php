@@ -336,7 +336,7 @@ class ProcessTransactionTest extends TestCase
         $client = new ExigoApi($_ENV["TEST_USER"],$_ENV["TEST_PASSWORD"],$_ENV["TEST_COMPANY"],$_ENV['API_URL_ENDPOINT']);
         
         $response = $client->processTransaction($processTransaction);
-
+        
         $this->assertTrue($response->success);
 
     }
