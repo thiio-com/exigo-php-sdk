@@ -13,6 +13,7 @@ use Thiio\Exigo\Requests\OrdersPayments\CreateOrder;
 use Thiio\Exigo\Requests\OrdersPayments\CalculateOrder;
 use Thiio\Exigo\Requests\OrdersPayments\ChargeCreditCardToken;
 use Thiio\Exigo\Requests\OrdersPayments\ProcessTransaction;
+use Thiio\Exigo\Requests\TreeMovement\PlaceEnrollerNode;
 
 class ExigoApi extends Client
 {
@@ -119,6 +120,17 @@ class ExigoApi extends Client
         $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
         
         return $this->makeRequest($method, $fullUrl);
+
+    }
+
+
+    /**
+     * PlaceEnrollerNode
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=CreateCustomer
+     */
+    public function placeEnrollerNode( PlaceEnrollerNode $request, string $method = "POST", array $data = [] ){
+
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 
     }
 
