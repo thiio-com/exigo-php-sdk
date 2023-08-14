@@ -2,6 +2,7 @@
 
 namespace Thiio\Exigo\Http;
 
+use Thiio\Exigo\Requests\Customers\GetCustomerSite;
 use Thiio\Exigo\Requests\Items\GetItems;
 use Thiio\Exigo\Requests\Customers\GetCustomers;
 use Thiio\Exigo\Requests\Customers\CreateCustomer;
@@ -80,6 +81,20 @@ class ExigoApi extends Client
         
         return $this->makeRequest($method, $fullUrl);
     }
+
+    
+
+    /**
+     * GetCustomers
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=GetCustomers
+     */
+    public function getCustomerSite( GetCustomerSite $request, string $method = "GET", $extraParams = [] ){
+        
+        $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
+        
+        return $this->makeRequest($method, $fullUrl);
+    }
+
 
 
     /**
