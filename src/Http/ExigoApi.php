@@ -8,6 +8,7 @@ use Thiio\Exigo\Requests\Customers\GetCustomers;
 use Thiio\Exigo\Requests\Customers\CreateCustomer;
 use Thiio\Exigo\Requests\Customers\CreateCustomerExtended;
 use Thiio\Exigo\Requests\Customers\SetAccountCreditCardToken;
+use Thiio\Exigo\Requests\Customers\SetCustomerSite;
 use Thiio\Exigo\Requests\Customers\UpdateCustomer;
 use Thiio\Exigo\Requests\Items\GetWarehouses;
 use Thiio\Exigo\Requests\OrdersPayments\GetOrders;
@@ -178,6 +179,17 @@ class ExigoApi extends Client
      * https://api.exigo.com/3.0/ExigoApi.asmx?op=SetAccountCreditCardToken
      */
     public function setAccountCreditCardToken( SetAccountCreditCardToken $request, string $method = "PUT", array $data = [] ){
+
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
+
+    }
+
+
+    /**
+     * SetCustomerSite
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=SetCustomerSite
+     */
+    public function setCustomerSite( SetCustomerSite $request, string $method = "PUT", array $data = [] ){
 
         return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 
