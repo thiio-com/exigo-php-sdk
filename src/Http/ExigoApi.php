@@ -2,6 +2,7 @@
 
 namespace Thiio\Exigo\Http;
 
+use Thiio\Exigo\Requests\Communications\OptInSms;
 use Thiio\Exigo\Requests\Customers\GetCustomerSite;
 use Thiio\Exigo\Requests\Items\GetItems;
 use Thiio\Exigo\Requests\Customers\GetCustomers;
@@ -148,6 +149,17 @@ class ExigoApi extends Client
         $fullUrl = $request::ENDPOINT.$request->convertAttributesToQueryParams();
         
         return $this->makeRequest($method, $fullUrl);
+
+    }
+
+
+    /**
+     * OptInSms
+     * https://api.exigo.com/3.0/ExigoApi.asmx?op=OptInSms
+     */
+    public function optInSms( OptInSms $request, string $method = "POST", array $data = [] ){
+
+        return $this->makeRequest($method, $request::ENDPOINT, ['debug' => self::DEBUG, 'json' => $request->toArray() ]);
 
     }
 
